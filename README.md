@@ -12,10 +12,12 @@ Institut Teknologi Sepuluh Nopember.
 
 ## Isi
 
-`index.html` — satu halaman berdiri sendiri, tanpa pustaka luar.
+`index.html` — panel satu berkas, tanpa pustaka luar. Bilah menu di kiri, satu
+panel isi di kanan. Tab pertama adalah bagan alir metodologi.
 
 | Bagian | Isi |
 |---|---|
+| Bagan alir | Dua bagan metodologi lengkap dengan enam titik keputusan |
 | Peta | Pertanyaan penelitian, tiga tujuan, rantai pengolahan data |
 | Tahap 1 | Dari register meter ke profil beban — Pers. (3.1) – (3.5) |
 | Tahap 2 | Model jaringan dan aliran daya — Pers. (2.3) – (2.16) |
@@ -26,7 +28,8 @@ Institut Teknologi Sepuluh Nopember.
 | Tahap 7 | Partial smart charging — Pers. (3.20) – (3.23) |
 | Tahap 8 | Realokasi adopsi per gardu — Pers. (3.26) – (3.29) |
 | Hasil | Angka akhir dan urutan efektivitas strategi |
-| Latihan | Penetapan hosting capacity dengan hitung tangan, tiga iterasi |
+| Hitung tangan | Penetapan hosting capacity dengan kalkulator, tiga iterasi |
+| Latihan soal | Soal acak sepuluh persamaan; angkanya berganti setiap jawaban benar |
 
 Setiap persamaan disajikan dengan pola tetap: **cara membaca**, **fungsinya**,
 **contoh matematis** dengan angka nyata, dan **sumbernya**.
