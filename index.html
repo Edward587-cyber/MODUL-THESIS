@@ -1,0 +1,664 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Modul Hosting Capacity Penyulang A</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+/* Tata letak: kolom tunggal berbingkai, gaya lembar kerja teknik — garis tipis,
+   angka monospasi rata kolom, penanda tahap di tepi kiri seperti diagram satu garis. */
+:root{
+  --bg:#f4f6f8; --panel:#ffffff; --ink:#15202b; --ink-2:#5a6b7a;
+  --rule:#d4dde4; --accent:#0a6ea8; --accent-soft:#e3f0f8;
+  --ok:#1d7a4c; --ok-soft:#e2f2e9; --warn:#9a6508; --warn-soft:#fdf1dc;
+  --bad:#a62a21; --bad-soft:#fbe6e4;
+  --f-disp:'IBM Plex Sans Condensed',Arial Narrow,sans-serif;
+  --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e151b; --panel:#162029; --ink:#e6edf3; --ink-2:#9bb0c0;
+  --rule:#2a3a47; --accent:#4fb3e8; --accent-soft:#17303f;
+  --ok:#5fd19a; --ok-soft:#142e22; --warn:#e5b25c; --warn-soft:#33270f;
+  --bad:#f0837a; --bad-soft:#361917; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e151b; --panel:#162029; --ink:#e6edf3; --ink-2:#9bb0c0;
+  --rule:#2a3a47; --accent:#4fb3e8; --accent-soft:#17303f;
+  --ok:#5fd19a; --ok-soft:#142e22; --warn:#e5b25c; --warn-soft:#33270f;
+  --bad:#f0837a; --bad-soft:#361917; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--panel)}
+
+/* ---------- navigasi ---------- */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--panel);
+  border-bottom:1px solid var(--rule)}
+.navin{max-width:1060px;margin:0 auto;padding-block:.5rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;gap:.3rem;overflow-x:auto;scrollbar-width:thin}
+nav a{flex:0 0 auto;font:600 .72rem/1 var(--f-mono);letter-spacing:.04em;color:var(--ink-2);
+  text-decoration:none;padding:.42rem .55rem;border-radius:3px;white-space:nowrap}
+nav a:hover{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+.wrap{max-width:1060px;margin:0 auto;padding-block:0 4rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- kepala ---------- */
+header{padding-block:2.4rem 1.6rem;border-bottom:2px solid var(--ink)}
+.kicker{font:600 .7rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem}
+h1{font-family:var(--f-disp);font-size:clamp(1.9rem,5.2vw,3rem);line-height:1.08;margin:0 0 .5rem;
+  text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.1rem;
+  font:500 .76rem/1.4 var(--f-mono);color:var(--ink-2)}
+
+/* ---------- tahap ---------- */
+section{padding-block:2.4rem 1rem;border-bottom:1px solid var(--rule)}
+.tahap{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.3rem}
+.tahap b{font:700 .72rem/1 var(--f-mono);letter-spacing:.1em;color:var(--panel);
+  background:var(--accent);padding:.32rem .5rem;border-radius:3px;flex:0 0 auto}
+h2{font-family:var(--f-disp);font-size:clamp(1.3rem,3.4vw,1.75rem);margin:0;line-height:1.15;text-wrap:balance}
+.lead{color:var(--ink-2);max-width:68ch;margin:.5rem 0 1.5rem}
+h3{font-family:var(--f-disp);font-size:1.02rem;margin:2rem 0 .6rem;letter-spacing:.01em}
+
+/* ---------- kartu persamaan ---------- */
+.kartu{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+  margin-bottom:1.1rem;overflow:hidden}
+.kartu-kepala{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;
+  padding:.65rem .9rem;border-bottom:1px solid var(--rule);background:var(--accent-soft)}
+.pers{font:600 .74rem/1 var(--f-mono);color:var(--accent);letter-spacing:.03em}
+.judul{font-weight:600;font-size:.94rem;min-width:0}
+.rumus{font-family:var(--f-mono);font-size:clamp(.82rem,2.3vw,1rem);padding:1rem .9rem;
+  overflow-x:auto;white-space:nowrap;border-bottom:1px solid var(--rule);font-weight:500}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.sel{padding:.8rem .9rem;border-right:1px solid var(--rule);border-top:1px solid var(--rule);min-width:0}
+.sel:first-child{border-top:none}
+.sel h4{font:600 .66rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-2);margin:0 0 .45rem}
+.sel p{margin:0;font-size:.875rem}
+.sel .hit{font-family:var(--f-mono);font-size:.82rem;background:var(--bg);
+  border-radius:3px;padding:.45rem .55rem;margin-top:.4rem;overflow-x:auto;white-space:nowrap}
+@media(min-width:560px){.sel{border-top:1px solid var(--rule)}}
+
+/* ---------- rantai ---------- */
+.rantai{display:flex;flex-direction:column;gap:.35rem;margin:1.2rem 0}
+.rantai div{display:grid;grid-template-columns:1fr auto 1fr;gap:.5rem;align-items:center;
+  background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:.6rem .75rem;font-size:.85rem}
+.rantai .op{font:600 .74rem/1 var(--f-mono);color:var(--accent);white-space:nowrap}
+@media(max-width:620px){.rantai div{grid-template-columns:1fr;gap:.2rem}}
+
+/* ---------- tabel ---------- */
+.tbl-bungkus{overflow-x:auto;border:1px solid var(--rule);border-radius:5px;background:var(--panel);margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.48rem .7rem;text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{font:600 .68rem/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--bg)}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+tbody tr:last-child td{border-bottom:none}
+tr.tandai td{background:var(--warn-soft);font-weight:600}
+
+/* ---------- catatan ---------- */
+.nota{border-left:3px solid var(--accent);background:var(--panel);padding:.75rem .9rem;
+  margin:1rem 0;font-size:.875rem;border-radius:0 4px 4px 0}
+.nota.awas{border-left-color:var(--warn)}
+.nota b{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;font-family:var(--f-mono);
+  display:block;margin-bottom:.25rem;color:var(--ink-2)}
+
+/* ---------- hitung tangan ---------- */
+.iterasi{background:var(--panel);border:1px solid var(--rule);border-radius:5px;
+  padding:1rem;margin-bottom:.9rem}
+.iterasi header{padding:0;border:none;display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem}
+.lencana{font:700 .7rem/1 var(--f-mono);padding:.3rem .5rem;border-radius:3px;flex:0 0 auto}
+.lencana.ok{background:var(--ok-soft);color:var(--ok)}
+.lencana.bad{background:var(--bad-soft);color:var(--bad)}
+.baris{font-family:var(--f-mono);font-size:.84rem;padding:.3rem 0;border-bottom:1px dotted var(--rule);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.baris:last-child{border-bottom:none}
+.baris span:last-child{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+
+.alat{background:var(--panel);border:1px solid var(--rule);border-radius:5px;padding:1rem;margin:1.2rem 0}
+.alat label{display:block;font:600 .68rem/1 var(--f-mono);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin-bottom:.5rem}
+.alat input[type=range]{width:100%;accent-color:var(--accent)}
+.keluaran{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.6rem;margin-top:.9rem}
+.kotak{background:var(--bg);border-radius:4px;padding:.6rem .7rem;min-width:0}
+.kotak em{display:block;font:600 .63rem/1 var(--f-mono);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);font-style:normal;margin-bottom:.3rem}
+.kotak strong{font-family:var(--f-mono);font-size:1.12rem;font-variant-numeric:tabular-nums}
+#status{font-weight:700}
+
+figure{margin:1.2rem 0}
+figcaption{font-size:.78rem;color:var(--ink-2);margin-top:.4rem;font-family:var(--f-mono)}
+svg{max-width:100%;height:auto;display:block}
+.fin{padding-block:2rem;color:var(--ink-2);font-size:.85rem}
+</style>
+
+<nav><div class="navin">
+  <a href="#peta">Peta</a><a href="#t1">1 · Data</a><a href="#t2">2 · Model</a>
+  <a href="#t3">3 · Validasi</a><a href="#t4">4 · EV</a><a href="#t5">5 · PLTS</a>
+  <a href="#t6">6 · HC</a><a href="#t7">7 · Smart Charging</a><a href="#t8">8 · Realokasi</a>
+  <a href="#hasil">Hasil</a><a href="#tangan">Hitung Tangan</a>
+</div></nav>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Modul Bimbingan Mandiri</div>
+  <h1>Hosting Capacity Penyulang A</h1>
+  <p class="sub">Seluruh alur penelitian dari register meter sampai angka akhir. Setiap persamaan disertai cara membacanya, untuk apa dipakai, contoh hitung dengan angka nyata, dan dari mana rumusnya berasal.</p>
+  <div class="meta">
+    <span>Edward Paulus Saputra Panjaitan</span>
+    <span>Magister Teknik Elektro ITS</span>
+    <span>Penyulang A · jaringan distribusi 20 kV perkotaan</span>
+  </div>
+</header>
+
+<!-- ============================ PETA ============================ -->
+<section id="peta">
+  <div class="tahap"><b>PETA</b><h2>Satu Pertanyaan, Delapan Tahap</h2></div>
+  <p class="lead">Penelitian ini menjawab satu pertanyaan: <strong>berapa banyak kendaraan listrik dan PLTS atap yang dapat ditampung penyulang Penyulang A tanpa melanggar batas operasi, dan bagaimana menambahnya.</strong> Semua yang lain adalah jalan menuju jawaban itu.</p>
+
+  <h3>Tiga tujuan</h3>
+  <div class="tbl-bungkus"><table>
+    <thead><tr><th>Tujuan</th><th>Pertanyaannya</th><th>Dijawab di tahap</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Berapa hosting capacity EV dan PLTS pada kondisi sekarang?</td><td>1 – 6</td></tr>
+      <tr><td>2</td><td>Bagaimana pengaruhnya terhadap tegangan, pembebanan, dan rugi-rugi?</td><td>2 – 3, 6</td></tr>
+      <tr><td>3</td><td>Strategi apa yang menaikkannya, dan seberapa besar?</td><td>7 – 8</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Rantai pengolahan</h3>
+  <p class="lead">Setiap angka di tesis dapat ditelusuri mundur melalui rantai ini. Kalau Anda bingung sebuah angka datang dari mana, cari posisinya di sini lebih dulu.</p>
+  <div class="rantai">
+    <div><span>Register meter 15 menit</span><span class="op">— Pers. 3.1 →</span><span>Profil daya gardu 30 menit</span></div>
+    <div><span>Profil gardu + meter GI</span><span class="op">— Pers. 3.2 →</span><span>Beban ekuivalen 20 kV</span></div>
+    <div><span>Profil 61 hari</span><span class="op">— Pers. 3.3–3.5 →</span><span>Hari tipikal MAX, AVG, MIN</span></div>
+    <div><span>Hari tipikal + parameter jaringan</span><span class="op">— Pers. 2.2–2.16 →</span><span>Aliran daya 48 interval</span></div>
+    <div><span>Aliran daya + batas indikator</span><span class="op">— Pers. 2.28 →</span><span>Status layak atau melanggar</span></div>
+    <div><span>Status layak + kisi 1 %</span><span class="op">— Pers. 3.19 →</span><span>Hosting capacity</span></div>
+  </div>
+
+  <div class="nota"><b>Yang menentukan segalanya</b>
+    Pada penyulang ini, indikator yang selalu mengikat adalah <strong>pembebanan transformator</strong>, bukan tegangan dan bukan kabel. Tegangan tidak pernah keluar dari 0,994–1,032 pu, dan pembebanan kabel tertinggi hanya 22,6 %. Jadi seluruh cerita hosting capacity EV di tesis ini sebenarnya adalah cerita tentang sisa kapasitas beberapa transformator pada jam tertentu.</div>
+</section>
+
+<!-- ============================ TAHAP 1 ============================ -->
+<section id="t1">
+  <div class="tahap"><b>TAHAP 1</b><h2>Dari Register Meter ke Profil Beban</h2></div>
+  <p class="lead">Tanpa tahap ini seluruh hasil tidak punya dasar pengukuran. Yang dikerjakan: mengubah catatan meter menjadi profil daya 30 menit yang siap dimasukkan ke model.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.1</span><span class="judul">Daya gardu dari register meter</span></div>
+    <div class="rumus">P<sub>MTD,i</sub>(t) = E<sub>Wh,i</sub>(t) × FKM<sub>i</sub> × 2 ÷ 1000</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Daya gardu ke-<em>i</em> pada interval ke-<em>t</em> sama dengan energi 30 menit, dikali faktor kali meter, dikali dua, dibagi seribu.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Membentuk profil 48 titik per hari untuk setiap gardu. Dua register 15 menit dijumlahkan dulu menjadi energi 30 menit, baru dikali dua untuk menjadi daya rata-rata, karena P = E ÷ 0,5.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>G12, 1 Mei 2026 pukul 00.00, energi sekunder 0,486 kWh, FKM 120.</p><div class="hit">0,486 × 120 × 2 = 116,64 kW</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Perumusan sendiri dari definisi daya rata-rata dan prinsip pengukuran melalui CT. FKM = rasio CT terpasang, diverifikasi di lapangan Oktober 2026.</p></div>
+    </div>
+  </div>
+
+  <div class="nota awas"><b>Pertanyaan yang pasti muncul</b>
+    “Kenapa dikali dua, bukan dibagi?” Jawabannya: energi 0,486 kWh dalam setengah jam sama dengan 0,972 kWh dalam satu jam, dan kWh per jam itulah kW. Membagi dengan 0,5 sama dengan mengali dengan 2. Naluri “setengah jam berarti dibagi dua” benar untuk arah sebaliknya, yaitu mengubah daya menjadi energi.</div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.2</span><span class="judul">Beban ekuivalen 20 kV</span></div>
+    <div class="rumus">P<sub>eq,i</sub>(t) = w<sup>E</sup><sub>i</sub> × [ P<sub>GI</sub>(t) × (1 − r) − Σ<sub>j</sub> P<sub>MTD,j</sub>(t) ]</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Beban ekuivalen gardu ke-<em>i</em> adalah porsi energi gardu itu dikali sisa daya yang belum terjelaskan, yaitu daya gardu induk setelah dikurangi rugi teknis dan dikurangi jumlah seluruh gardu terukur.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menutup selisih 4–5 % antara jumlah meter gardu dan meter penyulang. Sisa itu diletakkan di bus 20 kV, bukan di sisi 0,4 kV, supaya tidak menaikkan pembebanan transformator yang justru jadi indikator utama.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>P<sub>GI</sub> = 3.000 kW, jumlah gardu 2.850 kW, r = 0,01, w = 0,1067 untuk G05.</p><div class="hit">3000×0,99 − 2850 = 120 kW<br>0,1067 × 120 = 12,8 kW</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Perumusan sendiri. Praktiknya dikenal sebagai <em>load allocation</em>. Fraksi rugi 0,01 dicocokkan dengan hasil aliran daya yang memberi 1,02–1,10 %.</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.3 – 3.5</span><span class="judul">Pembentukan hari tipikal</span></div>
+    <div class="rumus">P<sub>typ</sub>(t) = (1/N) Σ P<sub>d</sub>(t)&nbsp;&nbsp;|&nbsp;&nbsp;MAX = arg max<sub>d</sub> [ max<sub>t</sub> P<sub>d</sub>(t) ]&nbsp;&nbsp;|&nbsp;&nbsp;MIN = arg min<sub>d</sub> [ min<sub>t</sub> P<sub>d</sub>(t) ]</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Hari MAX adalah hari yang puncak hariannya paling tinggi. Perhatikan dua lapis: <em>max</em> di dalam mencari puncak dalam satu hari, <em>arg max</em> di luar memilih harinya.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Memilih tiga hari wakil: beban puncak untuk menguji batas termal, beban minimum untuk menguji aliran daya balik, dan rata-rata per interval untuk kondisi tipikal.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Dari 61 hari Mei–Juni 2026.</p><div class="hit">MAX = 13 Mei, puncak 3.420 kW pukul 18.30<br>MIN = 27 Mei, minimum 1.860 kW pukul 07.30</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Definisi statistik baku. Pemilihan hari ekstrem sebagai skenario kritis adalah praktik umum studi hosting capacity.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TAHAP 2 ============================ -->
+<section id="t2">
+  <div class="tahap"><b>TAHAP 2</b><h2>Model Jaringan dan Aliran Daya</h2></div>
+  <p class="lead">Inilah mesin hitungnya. Anda tidak menulis persamaan ini, tetapi perlu memahaminya karena inilah yang diselesaikan 48 kali pada setiap run — dan seluruhnya ada sekitar 422 ribu penyelesaian.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 2.3 – 2.4</span><span class="judul">Injeksi daya tiap bus</span></div>
+    <div class="rumus">P<sub>i</sub> = Σ<sub>j</sub> |V<sub>i</sub>| |V<sub>j</sub>| |Y<sub>ij</sub>| cos(θ<sub>ij</sub> − δ<sub>i</sub> + δ<sub>j</sub>)</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Daya aktif di bus ke-<em>i</em> adalah jumlah, atas seluruh bus <em>j</em>, dari hasil kali magnitudo tegangan kedua bus, magnitudo admitansi antara keduanya, dan kosinus selisih sudutnya.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menyatakan bahwa daya di satu bus bergantung pada tegangan <em>seluruh</em> bus. Itulah sebabnya persamaan ini tidak bisa diselesaikan satu per satu dan memerlukan iterasi.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Tidak dihitung tangan. Yang dikerjakan perangkat lunak: 29 bus, 87 simpul, 76 peralatan, konvergen dalam 3 iterasi.</p></div>
+      <div class="sel"><h4>Sumber</h4><p>Rumusan baku aliran daya, dirujuk ke Hill dkk. (2023) [25]. Sama di seluruh buku teks sejak 1960-an.</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 2.5 · 2.14 · 2.15</span><span class="judul">Iterasi Newton-Raphson</span></div>
+    <div class="rumus">[ΔP ; ΔQ] = J · [Δδ ; Δ|V|]&nbsp;&nbsp;→&nbsp;&nbsp;δ<sup>(k+1)</sup> = δ<sup>(k)</sup> + Δδ<sup>(k)</sup>&nbsp;&nbsp;→&nbsp;&nbsp;berhenti bila max|ΔP, ΔQ| ≤ ε</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Selisih daya sama dengan matriks Jacobian dikali koreksi tegangan. Tegangan dikoreksi berulang sampai selisih dayanya lebih kecil dari toleransi.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menyelesaikan persamaan tak linier di atas. Toleransinya 10⁻⁴ sampai 10⁻⁶ pu.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Satu run penelitian ini = 48 penyelesaian berurutan, satu per interval 30 menit.</p><div class="hit">8.798 run × 48 ≈ 422.000 aliran daya</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Metode Newton-Raphson, rumusan baku, dirujuk ke [25]. Jacobian dibentuk sendiri oleh perangkat lunak.</p></div>
+    </div>
+  </div>
+
+  <div class="nota"><b>Definisi yang sempat salah, dan ini penting</b>
+    Pembebanan transformator di PowerFactory adalah <strong>rasio arus sisi 20 kV</strong> terhadap arus pengenal belitan, bukan daya semu terhadap kapasitas kVA. Hubungan keduanya eksak: L<sub>S</sub> = L<sub>I</sub> × |V<sub>HV</sub>|. Pada tegangan kerja 1,021–1,026 pu, selisihnya 1,7 poin saat pembebanan 81 % dan sekitar 2,1 poin saat mendekati 100 % — yaitu justru di titik yang menentukan hosting capacity.</div>
+</section>
+
+<!-- ============================ TAHAP 3 ============================ -->
+<section id="t3">
+  <div class="tahap"><b>TAHAP 3</b><h2>Validasi terhadap Kenyataan</h2></div>
+  <p class="lead">Verifikasi membuktikan perhitungannya benar. Validasi membuktikan modelnya mewakili kenyataan. Keduanya berbeda dan sering tertukar.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.6 – 3.9</span><span class="judul">Empat ukuran kesalahan</span></div>
+    <div class="rumus">MAPE = (100/n) Σ |(A<sub>i</sub> − F<sub>i</sub>)/A<sub>i</sub>|&nbsp;&nbsp;|&nbsp;&nbsp;RMSE = √[(1/n) Σ e<sub>i</sub>²]&nbsp;&nbsp;|&nbsp;&nbsp;MBE = (1/n) Σ e<sub>i</sub></div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>MAPE selalu positif sehingga tidak menunjukkan arah. MBE boleh negatif sehingga menunjukkan apakah model terlalu besar atau terlalu kecil. Bedanya terletak pada tanda mutlak.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menguji seberapa dekat keluaran simulasi dengan meter gardu induk, memakai skema <em>leave-one-week-out</em> agar tidak menguji dirinya sendiri.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Hasil validasi daya aktif.</p><div class="hit">MAPE = 1,05 % &nbsp;(batas proposal 5 %)<br>MBE daya reaktif = +63,6…+87,5 kvar</div></div>
+      <div class="sel"><h4>Sumber</h4><p>MAPE dirujuk ke Xie &amp; Hong (2018) [37]. Tiga ukuran lain adalah definisi statistik baku, ditambahkan atas arahan Pembimbing 2.</p></div>
+    </div>
+  </div>
+
+  <div class="nota awas"><b>Mengapa validasi tidak bisa dipindah ke depan</b>
+    Pers. 3.2 <em>mendefinisikan</em> beban ekuivalen sebagai selisih antara meter GI dan jumlah meter gardu. Jadi setelah pengolahan, neracanya tertutup dengan sendirinya. Membandingkan total gardu dengan GI pada hari yang sama akan memberi MAPE mendekati nol — bukan karena model bagus, melainkan karena baru saja dipaksa nol. Itu uji yang membuktikan dirinya sendiri.</div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.10</span><span class="judul">Pita ketidakpastian hosting capacity</span></div>
+    <div class="rumus">ΔHC<sub>PV</sub> = ε<sub>MAPE</sub> × P<sub>siang</sub> ÷ |dP<sub>GI</sub>/dα<sub>PV</sub>|</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Galat model dalam satuan kW, dibagi kemiringan dalam kW per poin penetrasi, menghasilkan galat dalam satuan poin penetrasi.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Membuat hosting capacity dilaporkan sebagai rentang, bukan angka tunggal tanpa ketidakpastian.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Hari MIN: ε = 0,0105, beban siang 2.328,3 kW, kemiringan 22,85 kW per 1 %.</p><div class="hit">0,0105 × 2328,3 ÷ 22,85 = 1,07 poin<br>HC = 97,5 % → 96,4 – 98,6 %</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Perumusan sendiri, memakai perambatan galat melalui kemiringan kurva.</p></div>
+    </div>
+  </div>
+
+  <div class="nota awas"><b>Jebakan yang sempat menjerat</b>
+    Kemiringan harus diukur <em>di sekitar titik yang mengikat</em>. Pada penetrasi rendah, P<sub>GI</sub> minimum masih terjadi malam hari ketika tidak ada matahari, sehingga kemiringannya nol dan pita akan salah besar. Versi awal skrip mengukurnya dari penetrasi nol dan memberi pita 147 poin — jelas mustahil.</div>
+</section>
+
+<!-- ============================ TAHAP 4 ============================ -->
+<section id="t4">
+  <div class="tahap"><b>TAHAP 4</b><h2>Model Beban Kendaraan Listrik</h2></div>
+  <p class="lead">Tiga kelas pengisian, satu profil waktu, dan satu angka penetrasi yang disapu.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.11</span><span class="judul">Daya pengisian tiap kelas</span></div>
+    <div class="rumus">P<sub>chg,k</sub> = V<sub>n</sub> × I<sub>k</sub> × cos φ<sub>EV</sub></div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Daya satu fasa paling dasar: tegangan dikali arus dikali faktor daya.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menurunkan daya pengisian dari standar, bukan dari katalog produk, sehingga dapat ditelusuri.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Kelas S2, 220 V, 24 A, cos φ 0,95.</p><div class="hit">220 × 24 × 0,95 = 5.016 W = 5,02 kW<br>S1 = 3,34 kW · S3 = 6,69 kW · motor = 1 kW</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Arus 16/24/32 A mengikuti IEC 61851-1 Mode 3 [33]. Tegangan 220 V nominal pelanggan PLN.</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.12 – 3.14</span><span class="judul">Beban pengisian per transformator</span></div>
+    <div class="rumus">N<sub>EV,i,k</sub> = a<sub>EV</sub> × s<sub>k</sub> × N<sub>elig,i,k</sub>&nbsp;&nbsp;→&nbsp;&nbsp;P<sub>EV,i</sub>(t) = c × u(t) × Σ<sub>k</sub> N<sub>EV,i,k</sub> × P<sub>chg,k</sub></div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Beban pengisian gardu ke-<em>i</em> pada jam <em>t</em> = koefisien koinsidensi × nilai profil pada jam itu × jumlah seluruh kelas dari (jumlah kendaraan × daya pengisiannya).</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menyebarkan beban pengisian ke gardu menurut jumlah pelanggan potensial masing-masing, sehingga sebaran spasialnya tidak perlu dibobot terpisah.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>T_G07: 213 pelanggan motor, 99 pelanggan mobil, kelas S2.</p><div class="hit">213×1,00 + 99×5,02 = 710,0 kW (adopsi penuh)<br>pada 17 % → 0,17 × 710,0 = 120,7 kW</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Notasi Lampiran A. Bentuk adopsi N = a × N<sub>elig</sub> sejalan Li &amp; Jenn (2024) [18]; koinsidensi c menurut Fani dkk. (2024) [19].</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.15</span><span class="judul">Penskalaan koefisien koinsidensi</span></div>
+    <div class="rumus">HC<sub>EV</sub>(c) = HC<sub>EV</sub>(1) ÷ c</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Hosting capacity pada koinsidensi <em>c</em> adalah hosting capacity pada koinsidensi penuh dibagi <em>c</em>.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Berlaku tanpa simulasi baru, karena <em>c</em> dan <em>a</em><sub>EV</sub> masuk hanya sebagai hasil kali. Penskalaan ini hanya mengubah satuan penyebutnya — daya yang dapat ditampung jaringan tidak berubah sama sekali.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Hari MAX kelas S2, HC pada c = 1 adalah 17,32 %.</p><div class="hit">c = 0,6 → 17,32 ÷ 0,6 = 28,87 %<br>c = 0,3 → 17,32 ÷ 0,3 = 57,73 %</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Turunan sendiri dari struktur Pers. 3.13. Nilai pembanding mengacu Bollerslev dkk. (2022) [20].</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TAHAP 5 ============================ -->
+<section id="t5">
+  <div class="tahap"><b>TAHAP 5</b><h2>Model PLTS Atap</h2></div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.16 – 3.18</span><span class="judul">Kapasitas, bobot, dan keluaran PLTS</span></div>
+    <div class="rumus">α<sub>PV</sub> = P<sub>PV,tot</sub> ÷ P<sub>puncak</sub>&nbsp;&nbsp;|&nbsp;&nbsp;w<sub>i</sub> = S<sub>i</sub> ÷ Σ S<sub>j</sub>&nbsp;&nbsp;|&nbsp;&nbsp;P<sub>PV,i</sub>(t) = α<sub>PV</sub> × P<sub>tot</sub> × w<sub>i</sub> × G(t)/G<sub>ref</sub> × PR</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Bobot gardu adalah daya tersambung pelanggan potensialnya dibagi total seluruh gardu, sehingga jumlah seluruh bobot pasti satu. Keluarannya = kapasitas × bobot × perbandingan irradiansi × performance ratio.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menyatakan penetrasi PLTS terhadap beban puncak penyulang (3.420 kW), bukan terhadap jumlah pelanggan. Penetrasi 100 % berarti kapasitas terpasang 3.420 kWp.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>G07, w = 0,1444, pukul 11.00 hari cerah, G = 835,7 W/m², PR = 0,80.</p><div class="hit">0,1444 × 3420 = 494,0 kWp<br>494,0 × 835,7/1000 × 0,80 = 330,2 kW</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Normalisasi terhadap beban puncak mengikuti Qamar dkk. (2023) [17]. Bentuk performance ratio dari Khalid dkk. (2016) [27], sejalan IEC 61724-1.</p></div>
+    </div>
+  </div>
+
+  <div class="nota"><b>Mengapa pakai performance ratio, bukan model modul</b>
+    Model modul lengkap memerlukan data modul dan suhu sel setiap pelanggan, yang tidak tersedia. Performance ratio 0,80 sudah mencakup rugi suhu, inverter, kabel, dan kekotoran modul dalam satu angka.</div>
+</section>
+
+<!-- ============================ TAHAP 6 ============================ -->
+<section id="t6">
+  <div class="tahap"><b>TAHAP 6</b><h2>Penetapan Hosting Capacity</h2></div>
+  <p class="lead">Di sinilah seluruh tahap sebelumnya bertemu menjadi satu angka.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 2.28</span><span class="judul">Daerah layak</span></div>
+    <div class="rumus">F<sub>s</sub> = { (a<sub>EV</sub>, α<sub>PV</sub>) : 0,90 ≤ V ≤ 1,05 ; L<sub>kabel</sub> ≤ 100 % ; L<sub>trafo</sub> ≤ 100 % ; P<sub>GI</sub> ≥ 0 ; ∀ bus, ∀ cabang, ∀ t ∈ T }</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Tanda titik dua dibaca “sedemikian rupa sehingga”. Lambang ∀ berarti syarat harus berlaku pada <em>setiap</em> elemen dan <em>setiap</em> interval, bukan rata-rata.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Satu pelanggaran pada satu interval saja sudah cukup untuk menggugurkan suatu penetrasi. Empat indikator: PI-1 tegangan, PI-2 kabel, PI-3 trafo, PI-4 aliran daya balik.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Pada penyulang Penyulang A, PI-3 selalu mengikat untuk EV dan PI-4 untuk PLTS. PI-1 dan PI-2 tidak pernah mengikat.</p></div>
+      <div class="sel"><h4>Sumber</h4><p>Kerangka terpadu Benzerga dkk. (2025) [7]. Batas tegangan dari Permen ESDM No. 4/2009 [30]; batas pembebanan dari praktik operasi PLN [32].</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 2.29 – 2.30</span><span class="judul">Definisi hosting capacity</span></div>
+    <div class="rumus">HC<sub>EV</sub> |<sub>α<sub>PV</sub></sub> = max { a<sub>EV</sub> : (a<sub>EV</sub>, α<sub>PV</sub>) ∈ F<sub>s</sub> }</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Nilai terbesar dari <em>a</em><sub>EV</sub> sedemikian rupa sehingga pasangan penetrasi itu masih di dalam daerah layak. Garis tegak dengan indeks di bawahnya dibaca “pada kondisi”, yaitu penetrasi teknologi lain ditahan tetap.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Membuat hosting capacity selalu menempel pada skenario tertentu, bukan angka tunggal milik jaringan. Hasilnya dapat digambar sebagai bidang dua dimensi.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Lihat bagian Hitung Tangan di bawah untuk penetapan lengkapnya.</p></div>
+      <div class="sel"><h4>Sumber</h4><p>Benzerga dkk. (2025) [7].</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.19</span><span class="judul">Interpolasi nilai batas</span></div>
+    <div class="rumus">HC = α<sub>1</sub> + (y<sub>lim</sub> − y<sub>1</sub>) × (α<sub>2</sub> − α<sub>1</sub>) ÷ (y<sub>2</sub> − y<sub>1</sub>)</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Tarik garis lurus antara titik aman terakhir dan titik pelanggaran pertama, lalu cari di mana garis itu memotong batas.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Kisi 1 % membuat pelanggaran ditemukan di titik kisi, bukan di batas sebenarnya. Tanpa interpolasi, 17,32 % akan dilaporkan sebagai 17 %.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Kelas S2 hari MAX, pembebanan T_G07.</p><div class="hit">0,17 + (100−99,620)×0,01 ÷ (100,823−99,620)<br>= 0,1732 → 17,32 %</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Interpolasi linier baku. Penerapannya pada seluruh tabel adalah tindak lanjut arahan Pembimbing 2.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TAHAP 7 ============================ -->
+<section id="t7">
+  <div class="tahap"><b>TAHAP 7</b><h2>Partial Smart Charging</h2></div>
+  <p class="lead">Inilah kebaruan utama tesis. Hasil studi kasus satu penyulang berubah menjadi hubungan yang berlaku untuk penyulang mana pun yang jendela malam dan siangnya dibatasi secara termal.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.20</span><span class="judul">Profil pengisian tergeser</span></div>
+    <div class="rumus">u<sub>p</sub>(t) = 0,8p untuk t ∈ siang (10–15) ; 1 − p untuk t ∈ malam (18–22) ; 0 selainnya</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Definisi bercabang: nilainya tergantung jam. Pangsa <em>p</em> adalah bagian energi pengisian yang dipindah ke siang hari.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Faktor 0,8 menjaga energi harian tetap: 5 jam × 0,8p + 4 jam × (1−p) = 4 jam, tidak bergantung pada p. Tanpa itu, perbandingan antar skenario tercampur dengan perubahan jumlah energi.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>p = 0,6 → siang bernilai 0,48 selama 5 jam, malam 0,40 selama 4 jam.</p><div class="hit">5×0,48 + 4×0,40 = 2,4 + 1,6 = 4,0 jam ✓</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Gagasan pergeseran ke jam surya mengikuti Fachrizal dkk. (2021) [11]. Bentuk energi-terkonservasi adalah perumusan sendiri.</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.22 – 3.23</span><span class="judul">Bentuk tertutup dan pangsa optimum</span></div>
+    <div class="rumus">HC(p) = min { HC<sub>0</sub> ÷ (1 − p) , HC<sub>1</sub> ÷ p }&nbsp;&nbsp;→&nbsp;&nbsp;p* = HC<sub>1</sub> ÷ (HC<sub>0</sub> + HC<sub>1</sub>) , HC* = HC<sub>0</sub> + HC<sub>1</sub></div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Yang lebih kecil di antara dua nilai. Suku pertama naik terhadap p karena beban malam berkurang; suku kedua turun karena beban siang bertambah. Puncaknya tepat ketika keduanya sama besar.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Pangsa optimum ditemukan hanya dari dua simulasi, tanpa menyapu seluruh nilai p. Juga menjelaskan mengapa PLTS baru berpengaruh di atas p*: PLTS menambah sisa kapasitas siang, jadi mengubah HC₁ tapi tidak HC₀.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Hari MAX: HC₀ = 17,32 %, HC₁ = 27,35 %.</p><div class="hit">p* = 27,35 ÷ (17,32+27,35) = 0,612<br>HC* = 17,32 + 27,35 = 44,67 %</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Turunan sendiri. Tidak ada rujukan yang memuat hubungan ini — inilah kebaruan utamanya.</p></div>
+    </div>
+  </div>
+
+  <div class="nota"><b>Bukti bahwa bentuk tertutup ini benar</b>
+    Pada run OpenDSS Anda, kolom selisih antara simulasi dan bentuk tertutup bernilai <strong>0,0 pada setiap nilai p</strong>, di ketiga hari. Lebih kuat dari pembandingan 196 kombinasi di PowerFactory yang cocok dalam 0,1 poin.
+    <br><br>Dan perpindahan pembatasnya terlihat langsung: sampai p = 0,6 yang mengikat T_G07 pukul 21.30 (jendela malam); pada p = 0,8 berpindah ke T_G09_2 pukul 14.30 (jendela siang) dan HC turun dari 43,29 % ke 34,19 %. Nilai p* = 0,612 jatuh persis di titik perpindahan itu.</div>
+
+  <div class="tbl-bungkus"><table>
+    <thead><tr><th>p</th><th>HC simulasi</th><th>HC Pers. 3.22</th><th>Selisih</th><th>Pembatas</th></tr></thead>
+    <tbody>
+      <tr><td class="n">0,0</td><td class="n">17,32 %</td><td class="n">17,32 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
+      <tr><td class="n">0,4</td><td class="n">28,86 %</td><td class="n">28,86 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
+      <tr class="tandai"><td class="n">0,6</td><td class="n">43,29 %</td><td class="n">43,29 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
+      <tr class="tandai"><td class="n">0,8</td><td class="n">34,19 %</td><td class="n">34,19 %</td><td class="n">0,0</td><td>T_G09_2 · 14.30</td></tr>
+      <tr><td class="n">1,0</td><td class="n">27,35 %</td><td class="n">27,35 %</td><td class="n">0,0</td><td>T_G09_2 · 14.30</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.8rem;color:var(--ink-2);font-family:var(--f-mono)">Baris bertanda = titik perpindahan pembatas. Sumber: hasil_5_smart_charging.csv, run 13 November 2026.</p>
+</section>
+
+<!-- ============================ TAHAP 8 ============================ -->
+<section id="t8">
+  <div class="tahap"><b>TAHAP 8</b><h2>Realokasi Adopsi per Gardu</h2></div>
+  <p class="lead">Strategi paling efektif di penyulang ini, dan tidak menambah satu pun peralatan.</p>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.26 – 3.27</span><span class="judul">Linearisasi dan batas tiap gardu</span></div>
+    <div class="rumus">L<sub>i</sub>(t) ≈ L<sub>i</sub>(t,0) + k<sub>i</sub>(t) × a<sub>i</sub>&nbsp;&nbsp;|&nbsp;&nbsp;β<sub>i</sub> = min<sub>t</sub> [ (100 − L<sub>i</sub>(t,0)) ÷ k<sub>i</sub>(t) ]</div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Pembebanan kira-kira garis lurus terhadap adopsi. β adalah nilai terkecil, atas seluruh interval, dari sisa kapasitas dibagi kemiringan. Lambang min di luar penting: jam paling kritis yang menentukan, bukan rata-rata.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menentukan adopsi terbesar yang masih dapat ditampung setiap transformator, hanya dari dua kali aliran daya.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>T_G07 hari MAX: dasar 79,32 %, kemiringan 119,4 % per satuan adopsi.</p><div class="hit">β = (100 − 79,32) ÷ 119,4 = 0,173</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Perumusan sendiri. Dibenarkan oleh hasil: β = 0,1730 sama dengan HC 0,1732 hasil sapuan penuh.</p></div>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="kartu-kepala"><span class="pers">Pers. 3.29</span><span class="judul">Hosting capacity realokasi</span></div>
+    <div class="rumus">HC<sub>R</sub> = Σ<sub>i</sub> min(β<sub>i</sub>, 1) × E<sub>i</sub> ÷ Σ<sub>i</sub> E<sub>i</sub></div>
+    <div class="grid4">
+      <div class="sel"><h4>Cara membaca</h4><p>Rata-rata berbobot: gardu dengan potensi daya pengisian besar berpengaruh lebih besar terhadap angka penyulang.</p></div>
+      <div class="sel"><h4>Fungsinya</h4><p>Menghitung batas atas manfaat kebijakan bila adopsi boleh berbeda antar gardu. Penyelesaiannya eksak tanpa optimal power flow, karena kendala setiap transformator terpisah dan fungsi tujuannya naik terhadap setiap adopsi.</p></div>
+      <div class="sel"><h4>Contoh matematis</h4><p>Hari MAX, 12 gardu, hanya 3 yang β &lt; 1.</p><div class="hit">1.490,72 ÷ 2.893,44 = 0,5152 → 51,52 %<br>naik 34,20 poin dari 17,32 %</div></div>
+      <div class="sel"><h4>Sumber</h4><p>Turunan sendiri. Pembanding pendekatan OPF seperti Hakim dkk. (2025) [15] yang memerlukan penyelesaian jaringan berulang.</p></div>
+    </div>
+  </div>
+
+  <div class="tbl-bungkus"><table>
+    <thead><tr><th>Elemen</th><th>Transformator</th><th>E<sub>i</sub> (kW)</th><th>β<sub>i</sub></th><th>min(β,1)</th></tr></thead>
+    <tbody>
+      <tr class="tandai"><td>ev_g07</td><td>T_G07</td><td class="n">709,98</td><td class="n">0,1730</td><td class="n">0,1730</td></tr>
+      <tr class="tandai"><td>ev_g09_t2</td><td>T_G09_2</td><td class="n">652,98</td><td class="n">0,1904</td><td class="n">0,1904</td></tr>
+      <tr class="tandai"><td>ev_g06</td><td>T_G06</td><td class="n">442,22</td><td class="n">0,3512</td><td class="n">0,3512</td></tr>
+      <tr><td>ev_g04</td><td>T_G04</td><td class="n">237,72</td><td class="n">1,8627</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g05</td><td>T_G05</td><td class="n">203,58</td><td class="n">1,1334</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g13</td><td>T_G13</td><td class="n">159,46</td><td class="n">1,2798</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g09_t1</td><td>T_G09_1</td><td class="n">144,48</td><td class="n">1,8893</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g11</td><td>T_G11</td><td class="n">144,42</td><td class="n">3,4466</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g12</td><td>T_G12</td><td class="n">110,32</td><td class="n">2,6265</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g10</td><td>T_G10</td><td class="n">67,20</td><td class="n">4,0794</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g01</td><td>T_G01_1</td><td class="n">11,04</td><td class="n">26,7805</td><td class="n">1,0000</td></tr>
+      <tr><td>ev_g08</td><td>T_G08_1</td><td class="n">10,04</td><td class="n">33,1673</td><td class="n">1,0000</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.8rem;color:var(--ink-2);font-family:var(--f-mono)">Baris bertanda = gardu yang membatasi. Sumber: hasil_7_realokasi_beta.csv, hari MAX.</p>
+
+  <div class="nota"><b>Mengapa kenaikannya sebesar itu</b>
+    Hosting capacity seragam memaksa seluruh penyulang mengikuti gardu paling terbatas, yaitu T_G07 dengan β = 0,173. Padahal sembilan dari dua belas gardu dapat menampung adopsi penuh. Realokasi hanya membebaskan sembilan gardu itu dari batas yang bukan miliknya.</div>
+</section>
+
+<!-- ============================ HASIL ============================ -->
+<section id="hasil">
+  <div class="tahap"><b>HASIL</b><h2>Angka Akhir dan Urutan Strategi</h2></div>
+
+  <div class="tbl-bungkus"><table>
+    <thead><tr><th>Besaran</th><th>MAX</th><th>AVG</th><th>MIN</th><th>Pembatas</th></tr></thead>
+    <tbody>
+      <tr><td>HC EV kelas S1</td><td class="n">22,61 %</td><td class="n">28,63 %</td><td class="n">31,44 %</td><td>T_G07</td></tr>
+      <tr class="tandai"><td>HC EV kelas S2</td><td class="n">17,32 %</td><td class="n">21,92 %</td><td class="n">24,07 %</td><td>T_G07</td></tr>
+      <tr><td>HC EV kelas S3</td><td class="n">25,94 %</td><td class="n">32,84 %</td><td class="n">36,06 %</td><td>T_G07</td></tr>
+      <tr><td>HC PLTS kriteria K1</td><td class="n">134,79 %</td><td class="n">123,65 %</td><td class="n">97,50 %</td><td>P<sub>GI</sub> ≥ 0 · 11.00</td></tr>
+      <tr><td>Smart charging HC*</td><td class="n">44,67 %</td><td class="n">52,19 %</td><td class="n">49,10 %</td><td>p* = 0,612 / 0,580 / 0,510</td></tr>
+      <tr><td>Realokasi HC<sub>R</sub></td><td class="n">51,52 %</td><td class="n">55,13 %</td><td class="n">56,07 %</td><td>3 gardu dari 12</td></tr>
+      <tr><td>Trafo sisip 400 kVA</td><td class="n">19,05 %</td><td class="n">25,02 %</td><td class="n">25,73 %</td><td>pindah ke T_G09_2</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Urutan efektivitas strategi, hari MAX</h3>
+  <div class="tbl-bungkus"><table>
+    <thead><tr><th>Strategi</th><th>HC</th><th>ΔHC</th><th>Biaya peralatan</th></tr></thead>
+    <tbody>
+      <tr><td>Realokasi adopsi per gardu</td><td class="n">51,52 %</td><td class="n">+34,20</td><td>nihil, hanya kebijakan</td></tr>
+      <tr><td>Partial smart charging p*</td><td class="n">44,67 %</td><td class="n">+27,35</td><td>pengendali pengisian</td></tr>
+      <tr><td>Transformator sisip 400 kVA</td><td class="n">19,05 %</td><td class="n">+1,73</td><td>satu transformator</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota awas"><b>Tiga hal yang akan ditanya penguji</b>
+    <strong>Trafo sisip 400 dan 630 kVA memberi hasil sama persis.</strong> Bukan kekeliruan — setelah T_G07 dibantu, pembatas pindah ke T_G09_2, sehingga kapasitas lebih besar tidak berguna. Menyisipkan lebih dari 400 kVA adalah pemborosan.
+    <br><br><strong>Hari MIN memberi HC EV tertinggi</strong> walau bebannya paling rendah, karena yang menentukan sisa kapasitas T_G07 pada jendela pengisian, bukan beban total penyulang.
+    <br><br><strong>Manfaat smart charging paling kecil justru pada hari MIN</strong> (HC₁ hanya 25,03 % terhadap HC₀ 24,07 %), karena T_G09_2 sudah terbebani 81,27 % pukul 15.00 sehingga jendela siang hampir tidak punya sisa kapasitas.</div>
+</section>
+
+<!-- ============================ HITUNG TANGAN ============================ -->
+<section id="tangan">
+  <div class="tahap"><b>LATIHAN</b><h2>Hitung Tangan: Tiga Iterasi</h2></div>
+  <p class="lead">Inilah penetapan hosting capacity EV kelas S2 hari MAX, dikerjakan persis seperti yang dilakukan simulasi, tetapi dengan kalkulator. Tiga iterasi sudah cukup untuk sampai ke angka akhir.</p>
+
+  <h3>Persiapan: dua aliran daya untuk mendapat kemiringan</h3>
+  <p style="max-width:68ch">Simulasi menyapu dari 0 % dengan kisi 1 %. Untuk hitung tangan, Pers. 3.26 memangkasnya: dua titik saja sudah menentukan garisnya. Ambil dua titik dari berkas <code>hasil_2_HC_EV_rinci.csv</code>.</p>
+  <div class="iterasi">
+    <div class="baris"><span>Transformator pembatas</span><span>T_G07 · 630 kVA</span></div>
+    <div class="baris"><span>Jam pembatas (jendela 18.00–22.00)</span><span>21.30</span></div>
+    <div class="baris"><span>Potensi daya pengisian E, kelas S2</span><span>709,98 kW</span></div>
+    <div class="baris"><span>Titik A: a = 0,05</span><span>L = 85,258 %</span></div>
+    <div class="baris"><span>Titik B: a = 0,17</span><span>L = 99,620 %</span></div>
+    <div class="baris"><span>Kemiringan k = (99,620 − 85,258) ÷ 0,12</span><span>119,68 %/satuan</span></div>
+    <div class="baris"><span>Periksa: L(0) = 85,258 − 119,68 × 0,05</span><span>79,27 % ≈ 79,32 % ✓</span></div>
+  </div>
+  <p style="max-width:68ch;font-size:.9rem;color:var(--ink-2)">Baris terakhir adalah pemeriksaan: garis yang Anda bentuk harus menembus pembebanan dasar T_G07 yang sebenarnya, yaitu 79,32 % dari <code>hasil_1_baseline_per_trafo.csv</code>. Selisih 0,05 poin menunjukkan linearisasinya sah.</p>
+
+  <h3>Tiga iterasi</h3>
+
+  <div class="iterasi">
+    <header><span class="lencana ok">ITERASI 1 · AMAN</span><strong>a<sub>EV</sub> = 16 %</strong></header>
+    <div class="baris"><span>Daya pengisian: 0,16 × 709,98</span><span>113,60 kW</span></div>
+    <div class="baris"><span>Pembebanan: 85,258 + 119,68 × (0,16 − 0,05)</span><span>98,42 %</span></div>
+    <div class="baris"><span>Periksa Pers. 2.28: 98,42 ≤ 100 ?</span><span>ya → lanjutkan</span></div>
+    <div class="baris"><span>Simulasi memberi</span><span>98,417 %</span></div>
+  </div>
+
+  <div class="iterasi">
+    <header><span class="lencana ok">ITERASI 2 · AMAN</span><strong>a<sub>EV</sub> = 17 %</strong></header>
+    <div class="baris"><span>Daya pengisian: 0,17 × 709,98</span><span>120,70 kW</span></div>
+    <div class="baris"><span>Pembebanan: 85,258 + 119,68 × 0,12</span><span>99,62 %</span></div>
+    <div class="baris"><span>Periksa Pers. 2.28: 99,62 ≤ 100 ?</span><span>ya → lanjutkan</span></div>
+    <div class="baris"><span>Simulasi memberi</span><span>99,620 %</span></div>
+  </div>
+
+  <div class="iterasi">
+    <header><span class="lencana bad">ITERASI 3 · MELANGGAR</span><strong>a<sub>EV</sub> = 18 %</strong></header>
+    <div class="baris"><span>Daya pengisian: 0,18 × 709,98</span><span>127,80 kW</span></div>
+    <div class="baris"><span>Pembebanan: 85,258 + 119,68 × 0,13</span><span>100,82 %</span></div>
+    <div class="baris"><span>Periksa Pers. 2.28: 100,82 ≤ 100 ?</span><span>TIDAK → berhenti</span></div>
+    <div class="baris"><span>Simulasi memberi</span><span>100,823 %</span></div>
+  </div>
+
+  <h3>Interpolasi dan hasil akhir</h3>
+  <div class="iterasi">
+    <div class="baris"><span>Pers. 3.19: 0,17 + (100 − 99,62) × 0,01 ÷ (100,82 − 99,62)</span><span>0,1732</span></div>
+    <div class="baris"><span><strong>Hosting capacity EV kelas S2, hari MAX</strong></span><span><strong>17,32 %</strong></span></div>
+    <div class="baris"><span>Simulasi OpenDSS memberi</span><span>17,32 %</span></div>
+    <div class="baris"><span>PowerFactory memberi</span><span>17,3 %</span></div>
+  </div>
+
+  <h3>Apa arti 17,32 % itu di lapangan</h3>
+  <div class="iterasi">
+    <div class="baris"><span>Daya pengisian total yang ditampung: 0,1732 × 709,98</span><span>122,97 kW</span></div>
+    <div class="baris"><span>Jumlah motor listrik di area G07: 0,1732 × 213</span><span>≈ 36 unit</span></div>
+    <div class="baris"><span>Jumlah mobil listrik di area G07: 0,1732 × 99</span><span>≈ 17 unit</span></div>
+    <div class="baris"><span>Periksa: 36 × 1,00 + 17 × 5,02</span><span>121,3 kW ≈ 122,97 kW ✓</span></div>
+  </div>
+
+  <h3>Coba sendiri</h3>
+  <p style="max-width:68ch">Geser penetrasi dan lihat pembebanan T_G07 beserta statusnya. Garis yang dipakai sama persis dengan hitung tangan di atas.</p>
+  <div class="alat">
+    <label for="slider">Penetrasi adopsi EV a<sub>EV</sub></label>
+    <input type="range" id="slider" min="0" max="30" step="1" value="17">
+    <div class="keluaran">
+      <div class="kotak"><em>a<sub>EV</sub></em><strong id="o-a">17 %</strong></div>
+      <div class="kotak"><em>Daya pengisian</em><strong id="o-p">120,70 kW</strong></div>
+      <div class="kotak"><em>Pembebanan T_G07</em><strong id="o-l">99,62 %</strong></div>
+      <div class="kotak"><em>Status PI-3</em><strong id="status">AMAN</strong></div>
+    </div>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 680 300" role="img" aria-label="Grafik pembebanan transformator T_G07 terhadap penetrasi adopsi EV, memotong batas 100 persen pada 17,32 persen">
+      <!-- grid -->
+      <g stroke="var(--rule)" stroke-width="1">
+        <line x1="70" y1="250" x2="650" y2="250"/>
+        <line x1="70" y1="40" x2="70" y2="250"/>
+        <line x1="70" y1="90" x2="650" y2="90" stroke-dasharray="5 4" stroke="var(--bad)" stroke-width="1.5"/>
+      </g>
+      <!-- sumbu y label -->
+      <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)">
+        <text x="62" y="254" text-anchor="end">70</text>
+        <text x="62" y="174" text-anchor="end">85</text>
+        <text x="62" y="94" text-anchor="end">100</text>
+        <text x="62" y="44" text-anchor="end">110</text>
+        <text x="70" y="270" text-anchor="middle">0</text>
+        <text x="263" y="270" text-anchor="middle">10</text>
+        <text x="457" y="270" text-anchor="middle">20</text>
+        <text x="650" y="270" text-anchor="middle">30</text>
+        <text x="360" y="290" text-anchor="middle">penetrasi adopsi EV (%)</text>
+      </g>
+      <text x="20" y="150" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-2)"
+            transform="rotate(-90 20 150)" text-anchor="middle">pembebanan (%)</text>
+      <text x="645" y="84" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--bad)" text-anchor="end">batas 100 %</text>
+      <!-- garis linearisasi: L = 79.32 + 119.68a ; x = 70 + a*1933.3 ; y = 250 - (L-70)*5.333 -->
+      <line x1="70" y1="200.4" x2="650" y2="13.0" stroke="var(--accent)" stroke-width="2.5"/>
+      <!-- titik simulasi -->
+      <g fill="var(--accent)">
+        <circle cx="166.7" cy="168.7" r="4"/>
+        <circle cx="263.3" cy="136.9" r="4"/>
+        <circle cx="379.3" cy="98.6" r="4"/>
+      </g>
+      <!-- tiga iterasi -->
+      <g>
+        <circle cx="379.3" cy="98.6" r="7" fill="none" stroke="var(--ok)" stroke-width="2.5"/>
+        <circle cx="398.7" cy="92.2" r="7" fill="none" stroke="var(--ok)" stroke-width="2.5"/>
+        <circle cx="418.0" cy="85.8" r="7" fill="none" stroke="var(--bad)" stroke-width="2.5"/>
+      </g>
+      <!-- HC -->
+      <line x1="404.9" y1="90.0" x2="404.9" y2="250" stroke="var(--warn)" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="404.9" cy="90.0" r="5" fill="var(--warn)"/>
+      <text x="412" y="238" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600" fill="var(--warn)">HC = 17,32 %</text>
+      <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--ink-2)">
+        <text x="379.3" y="128" text-anchor="middle">16</text>
+        <text x="398.7" y="60" text-anchor="middle">17</text>
+        <text x="430" y="68" text-anchor="start">18</text>
+      </g>
+    </svg>
+    <figcaption>Pembebanan T_G07 terhadap penetrasi, hari MAX. Lingkaran hijau = iterasi aman, merah = melanggar. Titik oranye = hosting capacity hasil interpolasi.</figcaption>
+  </figure>
+
+  <div class="nota"><b>Yang dibuktikan latihan ini</b>
+    Kenaikan pembebanan per satu poin penetrasi hampir tetap, yaitu 1,197 poin. Ketetapan itulah yang membenarkan linearisasi Pers. 3.26, dan karena itu pula realokasi pada Tahap 8 dapat diselesaikan secara eksak tanpa optimal power flow. Tiga iterasi dengan kalkulator menghasilkan angka yang sama dengan 18 kali penyelesaian aliran daya.</div>
+</section>
+
+<p class="fin">Seluruh angka pada halaman ini berasal dari penjalanan skrip sapuan OpenDSS pada 13 November 2026 dan dari naskah Bab 1–4. Berkas keluarannya ada di folder model, berawalan <code>hasil_</code>.</p>
+</div>
+
+<script>
+(function(){
+  var E=709.98, L05=85.258, k=119.68;
+  var s=document.getElementById('slider');
+  var oa=document.getElementById('o-a'), op=document.getElementById('o-p'),
+      ol=document.getElementById('o-l'), st=document.getElementById('status');
+  function num(x,d){ return x.toFixed(d).replace('.',','); }
+  function render(){
+    var a=parseInt(s.value,10)/100;
+    var L=L05+k*(a-0.05);
+    oa.textContent=s.value+' %';
+    op.textContent=num(a*E,2)+' kW';
+    ol.textContent=num(L,2)+' %';
+    if(L<=100){ st.textContent='AMAN'; st.style.color='var(--ok)'; }
+    else { st.textContent='MELANGGAR'; st.style.color='var(--bad)'; }
+  }
+  s.addEventListener('input',render); render();
+})();
+</script>
