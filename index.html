@@ -22,7 +22,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* ---------------- bilah menu ---------------- */
 aside{flex:0 0 240px;background:#0a1216;border-right:1px solid var(--garis);
-  position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;
+  position:sticky;top:env(safe-area-inset-top,0px);align-self:flex-start;overflow-y:auto;
+  height:calc(100vh - env(safe-area-inset-top,0px));
   padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:14px;padding-block:18px 28px}
 .merek{display:flex;align-items:center;gap:10px;margin-bottom:22px}
 .logo{width:34px;height:34px;border-radius:7px;background:var(--hijau);color:#06201a;
@@ -41,11 +42,14 @@ aside button i{font-style:normal;font-family:var(--m);font-size:11px;color:var(-
 aside button.aktif i{color:var(--hijau)}
 
 /* ---------------- isi ---------------- */
-main{flex:1 1 auto;min-width:0;padding-block:26px 56px;
+main{flex:1 1 auto;min-width:0;padding-block:0 56px;
   padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));
   max-width:1180px}
+.kepala{position:sticky;top:env(safe-area-inset-top,0px);z-index:12;background:var(--latar);
+  padding-block:20px 13px;margin-bottom:16px;border-bottom:1px solid var(--garis)}
+.kepala h1{margin-bottom:0}
 .eyebrow{font:600 10px/1 var(--m);letter-spacing:.16em;text-transform:uppercase;color:var(--hijau);margin-bottom:9px}
-h1{font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.12;margin:0 0 .4rem;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(1.35rem,3.1vw,1.85rem);line-height:1.14;margin:0 0 .4rem;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
 .lead{color:var(--teks2);max-width:70ch;margin:0 0 1.6rem;font-size:.93rem}
 h2{font-size:1.05rem;margin:2rem 0 .7rem;font-weight:600}
 h3{font-size:.95rem;margin:1.6rem 0 .5rem;font-weight:600}
@@ -187,8 +191,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 1. BAGAN ALIR =================== -->
 <section id="p-alir" data-menu="Bagan alir metodologi" data-grup="Peta" data-ikon="01">
+  <div class="kepala">
   <div class="eyebrow">Tahap nol · lihat ini dulu</div>
   <h1>Bagan Alir Metodologi</h1>
+  </div>
   <p class="lead">Seluruh penelitian dalam dua bagan, disambung penghubung A. Enam belah ketupat adalah titik keputusan: dua syarat mutu di awal, empat pengendali lingkar sapuan. Nomor hijau menunjuk persamaan yang dijalankan di blok itu — klik menu di kiri untuk membukanya.</p>
 
   <div class="alirbungkus">
@@ -227,8 +233,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 2. PETA =================== -->
 <section id="p-peta" data-menu="Peta penelitian" data-grup="Peta" data-ikon="02" hidden>
+  <div class="kepala">
   <div class="eyebrow">Orientasi</div>
   <h1>Satu Pertanyaan, Delapan Tahap</h1>
+  </div>
   <p class="lead">Penelitian ini menjawab satu pertanyaan: berapa banyak kendaraan listrik dan PLTS atap yang dapat ditampung penyulang tanpa melanggar batas operasi, dan bagaimana menambahnya. Semua yang lain adalah jalan menuju jawaban itu.</p>
 
   <div class="ubin">
@@ -268,8 +276,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 3. TAHAP 1 =================== -->
 <section id="p-t1" data-menu="1 · Data dan profil beban" data-grup="Tahapan" data-ikon="①" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 1</div>
   <h1>Dari Register Meter ke Profil Beban</h1>
+  </div>
   <p class="lead">Tanpa tahap ini seluruh hasil tidak punya dasar pengukuran. Yang dikerjakan: mengubah catatan meter menjadi profil daya 30 menit yang siap masuk model.</p>
 
   <div class="kartu">
@@ -311,8 +321,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 4. TAHAP 2 =================== -->
 <section id="p-t2" data-menu="2 · Aliran daya" data-grup="Tahapan" data-ikon="②" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 2</div>
   <h1>Model Jaringan dan Aliran Daya</h1>
+  </div>
   <p class="lead">Inilah mesin hitungnya. Anda tidak menulis persamaan ini, tetapi perlu memahaminya karena inilah yang diselesaikan 48 kali pada setiap run.</p>
 
   <div class="ubin">
@@ -350,8 +362,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 5. TAHAP 3 =================== -->
 <section id="p-t3" data-menu="3 · Validasi" data-grup="Tahapan" data-ikon="③" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 3</div>
   <h1>Validasi terhadap Kenyataan</h1>
+  </div>
   <p class="lead">Verifikasi membuktikan perhitungannya benar. Validasi membuktikan modelnya mewakili kenyataan. Keduanya berbeda dan sering tertukar.</p>
 
   <div class="kartu">
@@ -385,8 +399,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 6. TAHAP 4 =================== -->
 <section id="p-t4" data-menu="4 · Kendaraan listrik" data-grup="Tahapan" data-ikon="④" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 4</div>
   <h1>Model Beban Kendaraan Listrik</h1>
+  </div>
   <p class="lead">Tiga kelas pengisian, satu profil waktu, dan satu angka penetrasi yang disapu.</p>
 
   <div class="ubin">
@@ -432,8 +448,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 7. TAHAP 5 =================== -->
 <section id="p-t5" data-menu="5 · PLTS atap" data-grup="Tahapan" data-ikon="⑤" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 5</div>
   <h1>Model PLTS Atap</h1>
+  </div>
   <p class="lead">Penetrasi PLTS dinyatakan terhadap beban puncak penyulang, bukan terhadap jumlah pelanggan. Penetrasi 100 % berarti kapasitas terpasang 3.420 kWp.</p>
 
   <div class="kartu">
@@ -453,8 +471,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 8. TAHAP 6 =================== -->
 <section id="p-t6" data-menu="6 · Penetapan HC" data-grup="Tahapan" data-ikon="⑥" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 6</div>
   <h1>Penetapan Hosting Capacity</h1>
+  </div>
   <p class="lead">Di sinilah seluruh tahap sebelumnya bertemu menjadi satu angka.</p>
 
   <div class="kartu">
@@ -493,8 +513,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 9. TAHAP 7 =================== -->
 <section id="p-t7" data-menu="7 · Smart charging" data-grup="Tahapan" data-ikon="⑦" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 7 · kebaruan utama</div>
   <h1>Partial Smart Charging</h1>
+  </div>
   <p class="lead">Hasil studi kasus satu penyulang berubah menjadi hubungan yang berlaku untuk penyulang mana pun yang jendela malam dan siangnya dibatasi secara termal.</p>
 
   <div class="kartu">
@@ -536,8 +558,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 10. TAHAP 8 =================== -->
 <section id="p-t8" data-menu="8 · Realokasi per gardu" data-grup="Tahapan" data-ikon="⑧" hidden>
+  <div class="kepala">
   <div class="eyebrow">Tahap 8</div>
   <h1>Realokasi Adopsi per Gardu</h1>
+  </div>
   <p class="lead">Strategi paling efektif di penyulang ini, dan tidak menambah satu pun peralatan.</p>
 
   <div class="kartu">
@@ -586,8 +610,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 11. HASIL =================== -->
 <section id="p-hasil" data-menu="Angka akhir" data-grup="Hasil" data-ikon="∑" hidden>
+  <div class="kepala">
   <div class="eyebrow">Rekap</div>
   <h1>Angka Akhir dan Urutan Strategi</h1>
+  </div>
   <p class="lead">Seluruh angka dari run OpenDSS 13 November 2026 dan naskah Bab 4.</p>
 
   <div class="tb"><table>
@@ -621,8 +647,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 12. HITUNG TANGAN =================== -->
 <section id="p-tangan" data-menu="Hitung tangan · 3 iterasi" data-grup="Latihan" data-ikon="✎" hidden>
+  <div class="kepala">
   <div class="eyebrow">Contoh lengkap</div>
   <h1>Penetapan HC dengan Tiga Iterasi</h1>
+  </div>
   <p class="lead">Penetapan hosting capacity EV kelas S2 hari MAX, dikerjakan persis seperti simulasi, tetapi dengan kalkulator. Tiga iterasi cukup untuk sampai ke angka akhir.</p>
 
   <h2>Persiapan · dua aliran daya untuk mendapat kemiringan</h2>
@@ -682,8 +710,10 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 
 <!-- =================== 13. LATIHAN SOAL =================== -->
 <section id="p-soal" data-menu="Latihan soal acak" data-grup="Latihan" data-ikon="∞" hidden>
+  <div class="kepala">
   <div class="eyebrow">Latihan</div>
   <h1>Soal Acak</h1>
+  </div>
   <p class="lead">Angkanya berubah setiap kali Anda menjawab benar, jadi tidak ada yang bisa dihafal. Pilih persamaan yang ingin dilatih, atau biarkan acak dari semuanya.</p>
 
   <div class="cip" id="cip"></div>
