@@ -44,6 +44,10 @@ berisi deretan karakter acak.
 
 Frasa sandinya tidak ditulis di repositori ini.
 
+Setelah terbuka, panel tetap terbuka selama tab peramban belum ditutup.
+Tombol **Keluar dari panel** di kaki bilah menu menghapus sesi itu dan
+mengembalikan halaman ke layar kunci.
+
 ## Cara membuka
 
 Aktifkan GitHub Pages di Settings → Pages, sumber `main` / root. Halaman akan
