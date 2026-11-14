@@ -34,6 +34,15 @@ panel isi di kanan. Tab pertama adalah bagan alir metodologi.
 Setiap persamaan disajikan dengan pola tetap: **cara membaca**, **fungsinya**,
 **contoh matematis** dengan angka nyata, dan **sumbernya**.
 
+## Kunci akses
+
+Halaman terkunci frasa sandi. Isinya tidak tersimpan apa adanya di berkas —
+yang ada hanya sandi-teks AES-256-GCM, dengan kunci diturunkan memakai PBKDF2
+SHA-256 310.000 putaran. Tanpa frasa sandi yang benar, `index.html` hanya
+berisi deretan karakter acak.
+
+Frasa sandinya tidak ditulis di repositori ini.
+
 ## Cara membuka
 
 Aktifkan GitHub Pages di Settings → Pages, sumber `main` / root. Halaman akan

@@ -179,879 +179,98 @@ button.aksi:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
 }
 </style>
 
-<aside>
-  <div class="merek">
-    <div class="logo">HC</div>
-    <div><b>PANEL BIMBINGAN</b><span>Hosting Capacity</span></div>
-  </div>
-  <div class="daftarmenu" id="menu"></div>
-</aside>
 
-<main id="isi">
+<div id="gerbang">
+  <form id="formkunci" autocomplete="off">
+    <div class="glogo">HC</div>
+    <h1>Panel Bimbingan</h1>
+    <p>Hosting capacity jaringan distribusi 20&nbsp;kV<br>Halaman ini terkunci.</p>
+    <label for="sandi">Frasa sandi</label>
+    <input id="sandi" type="password" autocomplete="current-password" placeholder="masukkan frasa sandi">
+    <button type="submit" id="tombolbuka">Buka panel</button>
+    <div id="gsalah" role="status"></div>
+  </form>
+</div>
+<div id="muatan"></div>
 
-<!-- =================== 1. BAGAN ALIR =================== -->
-<section id="p-alir" data-menu="Bagan alir metodologi" data-grup="Peta" data-ikon="01">
-  <div class="kepala">
-  <div class="eyebrow">Tahap nol · lihat ini dulu</div>
-  <h1>Bagan Alir Metodologi</h1>
-  </div>
-  <p class="lead">Seluruh penelitian dalam dua bagan, disambung penghubung A. Enam belah ketupat adalah titik keputusan: dua syarat mutu di awal, empat pengendali lingkar sapuan. Nomor hijau menunjuk persamaan yang dijalankan di blok itu — klik menu di kiri untuk membukanya.</p>
-
-  <div class="alirbungkus">
-    <div class="alirkolom">
-      <h3>Bagian 1 · data sampai hosting capacity EV</h3>
-      <div class="alirgeser"><svg viewBox="0 0 560 1226" class="alir" role="img" aria-label="Bagan alir bagian 1: dari studi literatur sampai hosting capacity kendaraan listrik"><defs><marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="var(--garis2)"/></marker></defs><ellipse cx="174" cy="33" rx="80" ry="17" fill="var(--terminal)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="37.3" text-anchor="middle">Mulai</text><rect x="24" y="80" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t-kecil" x="174" y="103.3" text-anchor="middle">Studi literatur dan tinjauan pustaka</text><rect x="24" y="148" width="300" height="52" rx="6" fill="var(--kotak2)" stroke="var(--garis)" stroke-width="1.2"/><text class="t-kecil" x="174" y="171.55" text-anchor="middle">Pengumpulan data: kWh penyulang GI,</text><text class="t-kecil" x="174" y="185.05" text-anchor="middle">topologi, kabel, trafo, MTD, irradiansi</text><rect x="24" y="230" width="300" height="66" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="253.8" text-anchor="middle">Pengolahan data V2</text><text class="t-kecil" x="174" y="267.3" text-anchor="middle">FKM = rasio CT terpasang  ·  neraca GI</text><text class="t" x="174" y="280.8" text-anchor="middle">hari tipikal MAX, AVG, MIN</text><text class="t-pers" x="174" y="292" text-anchor="middle">(3.1) – (3.5)</text><rect x="24" y="326" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="349.3" text-anchor="middle">Pemodelan jaringan PowerFactory</text><polygon points="174,394 324,428 174,462 24,428" fill="var(--putus)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="425.55" text-anchor="middle">Verifikasi OpenDSS</text><text class="t" x="174" y="439.05" text-anchor="middle">tiga lapis sesuai ?</text><rect x="352" y="404" width="150" height="48" rx="6" fill="var(--perbaiki)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="427" y="425.55" text-anchor="middle">Perbaiki parameter</text><text class="t" x="427" y="439.05" text-anchor="middle">kabel dan trafo</text><line x1="324" y1="428" x2="352" y2="428" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="326" y="421" text-anchor="middle">tidak</text><path d="M 427 404 V 345" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3"/><path d="M 427 345 H 324" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="24" y="492" width="300" height="52" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t-kecil" x="174" y="515.55" text-anchor="middle">Simulasi QSTS baseline, 48 interval</text><text class="t" x="174" y="529.05" text-anchor="middle">aliran daya Newton-Raphson</text><text class="t-pers" x="174" y="540" text-anchor="middle">(2.2) – (2.16)</text><polygon points="174,574 324,608 174,642 24,608" fill="var(--putus)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="605.55" text-anchor="middle">Validasi terpenuhi ?</text><text class="t" x="174" y="619.05" text-anchor="middle">MAPE &lt; 5 %   (3.6) – (3.9)</text><rect x="352" y="584" width="150" height="48" rx="6" fill="var(--perbaiki)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="427" y="605.55" text-anchor="middle">Periksa FKM dan</text><text class="t" x="427" y="619.05" text-anchor="middle">beban ekuivalen</text><line x1="324" y1="608" x2="352" y2="608" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="326" y="601" text-anchor="middle">tidak</text><path d="M 502 608 H 524 V 263" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3"/><path d="M 524 263 H 324" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="24" y="672" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="695.3" text-anchor="middle">Analisis kondisi eksisting</text><rect x="24" y="740" width="300" height="38" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t-kecil" x="174" y="763.3" text-anchor="middle">Inisialisasi  a(EV) = 1 %,  PLTS = 0 %</text><rect x="24" y="808" width="300" height="52" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="831.55" text-anchor="middle">Simulasi QSTS kendaraan listrik</text><text class="t" x="174" y="845.05" text-anchor="middle">N(EV), P(EV,t), Q(EV,t)</text><text class="t-pers" x="174" y="856" text-anchor="middle">(3.11) – (3.14)</text><polygon points="174,890 324,924 174,958 24,924" fill="var(--putus)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="921.55" text-anchor="middle">Ada pelanggaran ?</text><text class="t" x="174" y="935.05" text-anchor="middle">PI-1, PI-2, PI-3   (2.28)</text><rect x="352" y="906" width="150" height="36" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="427" y="928.3" text-anchor="middle">a(EV) + 1 %</text><line x1="324" y1="924" x2="352" y2="924" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="326" y="917" text-anchor="middle">tidak</text><path d="M 427 906 V 834" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3"/><path d="M 427 834 H 324" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="24" y="988" width="300" height="66" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="1011.8" text-anchor="middle">Interpolasi batas  (3.19)</text><text class="t" x="174" y="1025.3" text-anchor="middle">Catat HC EV, trafo pembatas,</text><text class="t" x="174" y="1038.8" text-anchor="middle">dan jam pembatas  (2.29)</text><rect x="24" y="1084" width="300" height="38" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="1107.3" text-anchor="middle">Hosting capacity per transformator</text><ellipse cx="174" cy="1169" rx="17" ry="17" fill="var(--terminal)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="1173.3" text-anchor="middle">A</text><line x1="174" y1="50" x2="174" y2="78" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="118" x2="174" y2="146" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="200" x2="174" y2="228" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="296" x2="174" y2="324" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="364" x2="174" y2="392" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="462" x2="174" y2="490" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="188" y="473" text-anchor="middle">ya</text><line x1="174" y1="544" x2="174" y2="572" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="642" x2="174" y2="670" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="188" y="653" text-anchor="middle">ya</text><line x1="174" y1="710" x2="174" y2="738" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="778" x2="174" y2="806" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="860" x2="174" y2="888" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="958" x2="174" y2="986" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="188" y="969" text-anchor="middle">ya</text><line x1="174" y1="1054" x2="174" y2="1082" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="1122" x2="174" y2="1150" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/></svg></div>
-    </div>
-    <div class="alirkolom">
-      <h3>Bagian 2 · PLTS sampai kesimpulan</h3>
-      <div class="alirgeser"><svg viewBox="0 0 560 1126" class="alir" role="img" aria-label="Bagan alir bagian 2: dari hosting capacity PLTS sampai kesimpulan"><defs><marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="var(--garis2)"/></marker></defs><ellipse cx="174" cy="33" rx="17" ry="17" fill="var(--terminal)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="37.3" text-anchor="middle">A</text><rect x="24" y="80" width="300" height="38" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t-kecil" x="174" y="103.3" text-anchor="middle">Inisialisasi PLTS  α = 1 %,  hari MIN</text><rect x="24" y="148" width="300" height="52" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="171.55" text-anchor="middle">Simulasi QSTS PLTS atap</text><text class="t" x="174" y="185.05" text-anchor="middle">bobot w(i) dan P(PV,i,t)</text><text class="t-pers" x="174" y="196" text-anchor="middle">(3.16) – (3.18)</text><polygon points="174,230 324,264 174,298 24,264" fill="var(--putus)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="261.55" text-anchor="middle">Pelanggaran PLTS ?</text><text class="t" x="174" y="275.05" text-anchor="middle">K1 · K2 · K3   (2.28)</text><rect x="352" y="246" width="150" height="36" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="427" y="268.3" text-anchor="middle">α(PLTS) + 1 %</text><line x1="324" y1="264" x2="352" y2="264" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="326" y="257" text-anchor="middle">tidak</text><path d="M 427 246 V 174" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3"/><path d="M 427 174 H 324" fill="none" stroke="var(--garis2)" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#ar)"/><rect x="24" y="328" width="300" height="66" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="351.8" text-anchor="middle">Interpolasi  (3.19)</text><text class="t" x="174" y="365.3" text-anchor="middle">HC PLTS untuk K1, K2, K3  (2.30)</text><text class="t" x="174" y="378.8" text-anchor="middle">Pita ketidakpastian  (3.10)</text><rect x="24" y="424" width="300" height="52" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="447.55" text-anchor="middle">Kisi dua dimensi EV × PLTS</text><text class="t" x="174" y="461.05" text-anchor="middle">seluruh kombinasi dijalankan</text><rect x="24" y="506" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="529.3" text-anchor="middle">Peta daerah layak  F(s)   (2.28)</text><rect x="24" y="574" width="300" height="52" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="597.55" text-anchor="middle">Partial smart charging</text><text class="t" x="174" y="611.05" text-anchor="middle">p = 20 %, 30 %, …, 100 %</text><text class="t-pers" x="174" y="622" text-anchor="middle">(3.20) – (3.21)</text><rect x="24" y="656" width="300" height="52" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="679.55" text-anchor="middle">Bentuk tertutup HC(p)</text><text class="t" x="174" y="693.05" text-anchor="middle">pangsa optimum p* dan HC*</text><text class="t-pers" x="174" y="704" text-anchor="middle">(3.22) – (3.23)</text><rect x="24" y="738" width="300" height="66" rx="6" fill="var(--olah)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="761.8" text-anchor="middle">Strategi tanpa pengendalian</text><text class="t" x="174" y="775.3" text-anchor="middle">Transformator sisip 400 / 630 kVA</text><text class="t" x="174" y="788.8" text-anchor="middle">Realokasi adopsi  β(i) dan HC(R)</text><text class="t-pers" x="174" y="800" text-anchor="middle">(3.26) – (3.29)</text><rect x="24" y="834" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="857.3" text-anchor="middle">Analisis komparatif  ΔHC   (3.24)</text><rect x="24" y="902" width="300" height="52" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="925.55" text-anchor="middle">Analisis sensitivitas</text><text class="t" x="174" y="939.05" text-anchor="middle">koinsidensi, jam, ragam batas</text><text class="t-pers" x="174" y="950" text-anchor="middle">(3.15)</text><rect x="24" y="984" width="300" height="38" rx="6" fill="var(--kotak)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="1007.3" text-anchor="middle">Pembahasan, kesimpulan, saran</text><ellipse cx="174" cy="1069" rx="80" ry="17" fill="var(--terminal)" stroke="var(--garis)" stroke-width="1.2"/><text class="t" x="174" y="1073.3" text-anchor="middle">Selesai</text><line x1="174" y1="50" x2="174" y2="78" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="118" x2="174" y2="146" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="200" x2="174" y2="228" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="298" x2="174" y2="326" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><text class="t-label" x="188" y="309" text-anchor="middle">ya</text><line x1="174" y1="394" x2="174" y2="422" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="476" x2="174" y2="504" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="544" x2="174" y2="572" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="626" x2="174" y2="654" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="708" x2="174" y2="736" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="804" x2="174" y2="832" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="872" x2="174" y2="900" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="954" x2="174" y2="982" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/><line x1="174" y1="1022" x2="174" y2="1050" stroke="var(--garis2)" stroke-width="1.4" marker-end="url(#ar)"/></svg></div>
-    </div>
-  </div>
-
-  <div class="legenda">
-    <span><i class="sw" style="background:var(--kotak)"></i>Proses</span>
-    <span><i class="sw" style="background:var(--olah)"></i>Pengolahan dan sapuan</span>
-    <span><i class="sw" style="background:var(--putus);transform:rotate(45deg);width:12px;height:12px"></i>Titik keputusan</span>
-    <span><i class="sw" style="background:var(--perbaiki)"></i>Perbaikan, jalur balik</span>
-    <span><i class="sw" style="background:var(--terminal);border-radius:999px"></i>Mulai, selesai, penghubung</span>
-  </div>
-
-  <h2>Dua jenis lingkar, dan mengapa jumlah run-nya jauh berbeda</h2>
-  <div class="tb"><table>
-    <thead><tr><th>Lingkar</th><th>Berhenti ketika</th><th>Akibatnya</th><th>Run</th></tr></thead>
-    <tbody>
-      <tr><td>EV dan PLTS</td><td>Pelanggaran pertama ditemukan</td><td>Hanya menelusuri sampai batas</td><td class="n">481</td></tr>
-      <tr><td>Simultan</td><td>Seluruh kisi dua dimensi selesai</td><td>Harus menjalankan semuanya</td><td class="n">2.639</td></tr>
-      <tr class="sorot"><td>Smart charging</td><td>Seluruh skenario p selesai</td><td>Paling berat</td><td class="n">5.678</td></tr>
-    </tbody>
-  </table></div>
-  <p style="font-size:.8rem;color:var(--teks3);font-family:var(--m)">Total 8.798 run × 48 interval ≈ 422 ribu penyelesaian aliran daya.</p>
-
-  <div class="nota"><b>Enam titik keputusan</b>
-    Dua syarat mutu menahan alur: <strong>verifikasi OpenDSS</strong> memeriksa apakah perhitungannya benar, <strong>validasi MAPE</strong> memeriksa apakah modelnya mewakili kenyataan. Keduanya sering tertukar. Verifikasi membandingkan model dengan model; validasi membandingkan model dengan meter. Empat sisanya hanya pengendali lingkar sapuan.</div>
-</section>
-
-<!-- =================== 2. PETA =================== -->
-<section id="p-peta" data-menu="Peta penelitian" data-grup="Peta" data-ikon="02" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Orientasi</div>
-  <h1>Satu Pertanyaan, Delapan Tahap</h1>
-  </div>
-  <p class="lead">Penelitian ini menjawab satu pertanyaan: berapa banyak kendaraan listrik dan PLTS atap yang dapat ditampung penyulang tanpa melanggar batas operasi, dan bagaimana menambahnya. Semua yang lain adalah jalan menuju jawaban itu.</p>
-
-  <div class="ubin">
-    <div class="ub"><em>Hosting capacity EV</em><strong>17,32 %</strong><small>kelas S2, hari MAX, pembatas T_G07</small></div>
-    <div class="ub"><em>Hosting capacity PLTS</em><strong>97,50 %</strong><small>kriteria K1, hari MIN, pukul 11.00</small></div>
-    <div class="ub"><em>Setelah smart charging</em><strong>44,67 %</strong><small>pada pangsa optimum p* = 61,2 %</small></div>
-    <div class="ub"><em>Setelah realokasi</em><strong>51,52 %</strong><small>tanpa menambah peralatan</small></div>
-  </div>
-
-  <h2>Tiga tujuan</h2>
-  <div class="tb"><table>
-    <thead><tr><th>Tujuan</th><th>Pertanyaannya</th><th>Dijawab di</th></tr></thead>
-    <tbody>
-      <tr><td class="n">1</td><td>Berapa hosting capacity EV dan PLTS pada kondisi sekarang?</td><td>Tahap 1 – 6</td></tr>
-      <tr><td class="n">2</td><td>Bagaimana pengaruhnya terhadap tegangan, pembebanan, dan rugi-rugi?</td><td>Tahap 2 – 3, 6</td></tr>
-      <tr><td class="n">3</td><td>Strategi apa yang menaikkannya, dan seberapa besar?</td><td>Tahap 7 – 8</td></tr>
-    </tbody>
-  </table></div>
-
-  <h2>Rantai pengolahan</h2>
-  <p>Kalau Anda bingung sebuah angka datang dari mana, cari posisinya di rantai ini lebih dulu.</p>
-  <div class="tb"><table>
-    <thead><tr><th>Masukan</th><th>Diolah dengan</th><th>Menghasilkan</th></tr></thead>
-    <tbody>
-      <tr><td>Register meter 15 menit</td><td class="n">Pers. 3.1</td><td>Profil daya gardu 30 menit</td></tr>
-      <tr><td>Profil gardu + meter GI</td><td class="n">Pers. 3.2</td><td>Beban ekuivalen 20 kV</td></tr>
-      <tr><td>Profil 61 hari</td><td class="n">Pers. 3.3 – 3.5</td><td>Hari tipikal MAX, AVG, MIN</td></tr>
-      <tr><td>Hari tipikal + parameter jaringan</td><td class="n">Pers. 2.2 – 2.16</td><td>Aliran daya 48 interval</td></tr>
-      <tr><td>Aliran daya + batas indikator</td><td class="n">Pers. 2.28</td><td>Status layak atau melanggar</td></tr>
-      <tr><td>Status layak + kisi 1 %</td><td class="n">Pers. 3.19</td><td>Hosting capacity</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="nota"><b>Kunci yang menentukan segalanya</b>
-    Pada penyulang ini indikator yang selalu mengikat adalah <strong>pembebanan transformator</strong>, bukan tegangan dan bukan kabel. Tegangan tidak pernah keluar dari 0,994 – 1,032 pu, dan pembebanan kabel tertinggi hanya 22,6 %. Begitu Anda pegang ini, sebagian besar hasil bisa Anda terka sendiri sebelum melihat angkanya.</div>
-</section>
-
-<!-- =================== 3. TAHAP 1 =================== -->
-<section id="p-t1" data-menu="1 · Data dan profil beban" data-grup="Tahapan" data-ikon="①" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 1</div>
-  <h1>Dari Register Meter ke Profil Beban</h1>
-  </div>
-  <p class="lead">Tanpa tahap ini seluruh hasil tidak punya dasar pengukuran. Yang dikerjakan: mengubah catatan meter menjadi profil daya 30 menit yang siap masuk model.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.1</span><b>Daya gardu dari register meter</b></div>
-    <div class="rumus">P<sub>MTD,i</sub>(t) = E<sub>Wh,i</sub>(t) × FKM<sub>i</sub> × 2 ÷ 1000</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Daya gardu ke-i pada interval ke-t sama dengan energi 30 menit, dikali faktor kali meter, dikali dua, dibagi seribu.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Membentuk profil 48 titik per hari untuk setiap gardu. Dua register 15 menit dijumlahkan dulu jadi energi 30 menit, baru dikali dua agar menjadi daya rata-rata, karena P = E ÷ 0,5.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>G12, 1 Mei 2026 pukul 00.00, energi sekunder 0,486 kWh, FKM 120.</p><div class="hit">0,486 × 120 × 2 = 116,64 kW</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Perumusan sendiri dari definisi daya rata-rata dan prinsip pengukuran melalui CT. FKM = rasio CT terpasang, diverifikasi lapangan Oktober 2026.</p></div>
-    </div>
-  </div>
-
-  <div class="nota awas"><b>Pertanyaan yang pasti muncul</b>
-    “Kenapa dikali dua, bukan dibagi?” Energi 0,486 kWh dalam setengah jam berarti 0,972 kWh dalam satu jam, dan kWh per jam itulah kW. Membagi dengan 0,5 sama dengan mengali dengan 2. Naluri “setengah jam berarti dibagi dua” benar untuk arah sebaliknya.</div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.2</span><b>Beban ekuivalen 20 kV</b></div>
-    <div class="rumus">P<sub>eq,i</sub>(t) = w<sup>E</sup><sub>i</sub> × [ P<sub>GI</sub>(t) × (1 − r) − Σ<sub>j</sub> P<sub>MTD,j</sub>(t) ]</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Porsi energi gardu itu dikali sisa daya yang belum terjelaskan, yaitu daya gardu induk setelah dikurangi rugi teknis dan dikurangi jumlah seluruh gardu terukur.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menutup selisih 4 – 5 % antara jumlah meter gardu dan meter penyulang. Sisa itu diletakkan di bus 20 kV, bukan sisi 0,4 kV, supaya tidak menaikkan pembebanan transformator yang justru indikator utama.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>P<sub>GI</sub> = 3.000 kW, jumlah gardu 2.850 kW, r = 0,01, w = 0,1067.</p><div class="hit">3000 × 0,99 − 2850 = 120 kW<br>0,1067 × 120 = 12,8 kW</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Perumusan sendiri; praktiknya dikenal sebagai load allocation. Fraksi rugi 0,01 dicocokkan dengan hasil aliran daya 1,02 – 1,10 %.</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.3 – 3.5</span><b>Pembentukan hari tipikal</b></div>
-    <div class="rumus">P<sub>typ</sub>(t) = (1/N) Σ P<sub>d</sub>(t)&nbsp;&nbsp;·&nbsp;&nbsp;MAX = arg max<sub>d</sub> [ max<sub>t</sub> P<sub>d</sub>(t) ]&nbsp;&nbsp;·&nbsp;&nbsp;MIN = arg min<sub>d</sub> [ min<sub>t</sub> P<sub>d</sub>(t) ]</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Hari MAX adalah hari yang puncak hariannya paling tinggi. Dua lapis: <em>max</em> di dalam mencari puncak dalam satu hari, <em>arg max</em> di luar memilih harinya.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Memilih tiga hari wakil: beban puncak untuk batas termal, beban minimum untuk aliran daya balik, rata-rata per interval untuk kondisi tipikal.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Dari 61 hari Mei – Juni 2026.</p><div class="hit">MAX = 13 Mei · puncak 3.420 kW · 18.30<br>MIN = 27 Mei · minimum 1.860 kW · 07.30</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Definisi statistik baku. Pemilihan hari ekstrem sebagai skenario kritis adalah praktik umum studi hosting capacity.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== 4. TAHAP 2 =================== -->
-<section id="p-t2" data-menu="2 · Aliran daya" data-grup="Tahapan" data-ikon="②" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 2</div>
-  <h1>Model Jaringan dan Aliran Daya</h1>
-  </div>
-  <p class="lead">Inilah mesin hitungnya. Anda tidak menulis persamaan ini, tetapi perlu memahaminya karena inilah yang diselesaikan 48 kali pada setiap run.</p>
-
-  <div class="ubin">
-    <div class="ub"><em>Bus</em><strong>29</strong></div>
-    <div class="ub"><em>Simpul</em><strong>87</strong></div>
-    <div class="ub"><em>Peralatan</em><strong>76</strong></div>
-    <div class="ub"><em>Aliran daya total</em><strong>422 rb</strong><small>8.798 run × 48 interval</small></div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 2.3</span><b>Injeksi daya tiap bus</b></div>
-    <div class="rumus">P<sub>i</sub> = Σ<sub>j</sub> |V<sub>i</sub>| |V<sub>j</sub>| |Y<sub>ij</sub>| cos(θ<sub>ij</sub> − δ<sub>i</sub> + δ<sub>j</sub>)</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Daya aktif di bus ke-i adalah jumlah, atas seluruh bus j, dari hasil kali magnitudo tegangan kedua bus, magnitudo admitansi antara keduanya, dan kosinus selisih sudutnya.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menyatakan bahwa daya di satu bus bergantung pada tegangan seluruh bus. Itulah sebabnya tidak bisa diselesaikan satu per satu dan memerlukan iterasi.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Tidak dihitung tangan. Dikerjakan perangkat lunak, konvergen dalam 3 iterasi per interval.</p></div>
-      <div class="sl"><h4>Sumber</h4><p>Rumusan baku aliran daya, dirujuk ke Hill dkk. (2023) [25]. Sama di seluruh buku teks sejak 1960-an.</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 2.5 · 2.14 · 2.15</span><b>Iterasi Newton-Raphson</b></div>
-    <div class="rumus">[ΔP ; ΔQ] = J · [Δδ ; Δ|V|]&nbsp;&nbsp;→&nbsp;&nbsp;δ<sup>(k+1)</sup> = δ<sup>(k)</sup> + Δδ<sup>(k)</sup>&nbsp;&nbsp;→&nbsp;&nbsp;berhenti bila max|ΔP, ΔQ| ≤ ε</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Selisih daya sama dengan matriks Jacobian dikali koreksi tegangan. Tegangan dikoreksi berulang sampai selisih dayanya lebih kecil dari toleransi.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menyelesaikan persamaan tak linier di atas. Toleransi 10⁻⁴ sampai 10⁻⁶ pu.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Satu run = 48 penyelesaian berurutan, satu per interval 30 menit.</p><div class="hit">8.798 run × 48 ≈ 422.000 aliran daya</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Metode Newton-Raphson, rumusan baku, dirujuk ke [25]. Jacobian dibentuk sendiri oleh perangkat lunak.</p></div>
-    </div>
-  </div>
-
-  <div class="nota bahaya"><b>Definisi yang sempat salah — hafalkan ini</b>
-    Pembebanan transformator di PowerFactory adalah <strong>rasio arus sisi 20 kV</strong> terhadap arus pengenal belitan, bukan daya semu terhadap kapasitas kVA. Hubungannya eksak: L<sub>S</sub> = L<sub>I</sub> × |V<sub>HV</sub>|. Pada tegangan kerja 1,021 – 1,026 pu, selisihnya 1,7 poin saat pembebanan 81 % dan sekitar 2,1 poin saat mendekati 100 % — yaitu justru di titik yang menentukan hosting capacity.</div>
-</section>
-
-<!-- =================== 5. TAHAP 3 =================== -->
-<section id="p-t3" data-menu="3 · Validasi" data-grup="Tahapan" data-ikon="③" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 3</div>
-  <h1>Validasi terhadap Kenyataan</h1>
-  </div>
-  <p class="lead">Verifikasi membuktikan perhitungannya benar. Validasi membuktikan modelnya mewakili kenyataan. Keduanya berbeda dan sering tertukar.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.6 – 3.9</span><b>Empat ukuran kesalahan</b></div>
-    <div class="rumus">MAPE = (100/n) Σ |(A<sub>i</sub> − F<sub>i</sub>)/A<sub>i</sub>|&nbsp;&nbsp;·&nbsp;&nbsp;RMSE = √[(1/n) Σ e<sub>i</sub>²]&nbsp;&nbsp;·&nbsp;&nbsp;MBE = (1/n) Σ e<sub>i</sub></div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>MAPE selalu positif sehingga tidak menunjukkan arah. MBE boleh negatif sehingga menunjukkan apakah model terlalu besar atau terlalu kecil. Bedanya pada tanda mutlak.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menguji seberapa dekat keluaran simulasi dengan meter gardu induk, memakai skema leave-one-week-out agar tidak menguji dirinya sendiri.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Hasil validasi.</p><div class="hit">MAPE daya aktif = 1,05 %<br>batas proposal 5 % · MBE Q = +63,6…+87,5 kvar</div></div>
-      <div class="sl"><h4>Sumber</h4><p>MAPE dirujuk ke Xie &amp; Hong (2018) [37]. Tiga ukuran lain definisi statistik baku, ditambahkan atas arahan Pembimbing 2.</p></div>
-    </div>
-  </div>
-
-  <div class="nota awas"><b>Mengapa validasi tidak bisa dipindah ke depan</b>
-    Pers. 3.2 <em>mendefinisikan</em> beban ekuivalen sebagai selisih antara meter GI dan jumlah meter gardu. Jadi setelah pengolahan, neracanya tertutup dengan sendirinya. Membandingkan total gardu dengan GI pada hari yang sama akan memberi MAPE mendekati nol — bukan karena model bagus, melainkan karena baru saja dipaksa nol. Itu uji yang membuktikan dirinya sendiri.</div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.10</span><b>Pita ketidakpastian hosting capacity</b></div>
-    <div class="rumus">ΔHC<sub>PV</sub> = ε<sub>MAPE</sub> × P<sub>siang</sub> ÷ |dP<sub>GI</sub>/dα<sub>PV</sub>|</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Galat model dalam kW, dibagi kemiringan dalam kW per poin penetrasi, menghasilkan galat dalam satuan poin penetrasi.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Membuat hosting capacity dilaporkan sebagai rentang, bukan angka tunggal tanpa ketidakpastian.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Hari MIN: ε = 0,0105, beban siang 2.328,3 kW, kemiringan 22,85 kW per 1 %.</p><div class="hit">0,0105 × 2328,3 ÷ 22,85 = 1,07 poin<br>HC 97,5 % → 96,4 – 98,6 %</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Perumusan sendiri, memakai perambatan galat melalui kemiringan kurva.</p></div>
-    </div>
-  </div>
-
-  <div class="nota bahaya"><b>Jebakan yang sempat menjerat</b>
-    Kemiringan harus diukur <em>di sekitar titik yang mengikat</em>. Pada penetrasi rendah, P<sub>GI</sub> minimum masih terjadi malam hari ketika tidak ada matahari, sehingga kemiringannya nol dan pita akan salah besar. Versi awal skrip mengukurnya dari penetrasi nol dan memberi pita 147 poin — jelas mustahil.</div>
-</section>
-
-<!-- =================== 6. TAHAP 4 =================== -->
-<section id="p-t4" data-menu="4 · Kendaraan listrik" data-grup="Tahapan" data-ikon="④" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 4</div>
-  <h1>Model Beban Kendaraan Listrik</h1>
-  </div>
-  <p class="lead">Tiga kelas pengisian, satu profil waktu, dan satu angka penetrasi yang disapu.</p>
-
-  <div class="ubin">
-    <div class="ub"><em>Kelas S1 · 16 A</em><strong>3,34 kW</strong></div>
-    <div class="ub"><em>Kelas S2 · 24 A</em><strong>5,02 kW</strong></div>
-    <div class="ub"><em>Kelas S3 · 32 A</em><strong>6,69 kW</strong></div>
-    <div class="ub"><em>Motor listrik</em><strong>1,00 kW</strong></div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.11</span><b>Daya pengisian tiap kelas</b></div>
-    <div class="rumus">P<sub>chg,k</sub> = V<sub>n</sub> × I<sub>k</sub> × cos φ<sub>EV</sub></div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Daya satu fasa paling dasar: tegangan dikali arus dikali faktor daya.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menurunkan daya pengisian dari standar, bukan dari katalog produk, sehingga dapat ditelusuri.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Kelas S2, 220 V, 24 A, cos φ 0,95.</p><div class="hit">220 × 24 × 0,95 = 5.016 W = 5,02 kW</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Arus 16/24/32 A mengikuti IEC 61851-1 Mode 3 [33]. Tegangan 220 V nominal pelanggan PLN.</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.12 – 3.14</span><b>Beban pengisian per transformator</b></div>
-    <div class="rumus">N<sub>EV,i,k</sub> = a<sub>EV</sub> × s<sub>k</sub> × N<sub>elig,i,k</sub>&nbsp;&nbsp;→&nbsp;&nbsp;P<sub>EV,i</sub>(t) = c × u(t) × Σ<sub>k</sub> N<sub>EV,i,k</sub> × P<sub>chg,k</sub></div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Beban pengisian gardu ke-i pada jam t = koefisien koinsidensi × nilai profil pada jam itu × jumlah seluruh kelas dari (jumlah kendaraan × daya pengisiannya).</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menyebarkan beban pengisian ke gardu menurut jumlah pelanggan potensial masing-masing, sehingga sebaran spasialnya tidak perlu dibobot terpisah.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>T_G07: 213 pelanggan motor, 99 pelanggan mobil, kelas S2.</p><div class="hit">213×1,00 + 99×5,02 = 710,0 kW penuh<br>pada 17 % → 0,17 × 710,0 = 120,7 kW</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Notasi Lampiran A. Bentuk N = a × N<sub>elig</sub> sejalan Li &amp; Jenn (2024) [18]; koinsidensi c menurut Fani dkk. (2024) [19].</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.15</span><b>Penskalaan koefisien koinsidensi</b></div>
-    <div class="rumus">HC<sub>EV</sub>(c) = HC<sub>EV</sub>(1) ÷ c</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Hosting capacity pada koinsidensi c adalah hosting capacity pada koinsidensi penuh dibagi c.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Berlaku tanpa simulasi baru, karena c dan a<sub>EV</sub> masuk hanya sebagai hasil kali. Penskalaan ini hanya mengubah satuan penyebutnya — daya yang ditampung jaringan tidak berubah sama sekali.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Hari MAX kelas S2, HC pada c = 1 adalah 17,32 %.</p><div class="hit">c = 0,6 → 17,32 ÷ 0,6 = 28,87 %<br>c = 0,3 → 17,32 ÷ 0,3 = 57,73 %</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Turunan sendiri dari struktur Pers. 3.13. Nilai pembanding mengacu Bollerslev dkk. (2022) [20].</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== 7. TAHAP 5 =================== -->
-<section id="p-t5" data-menu="5 · PLTS atap" data-grup="Tahapan" data-ikon="⑤" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 5</div>
-  <h1>Model PLTS Atap</h1>
-  </div>
-  <p class="lead">Penetrasi PLTS dinyatakan terhadap beban puncak penyulang, bukan terhadap jumlah pelanggan. Penetrasi 100 % berarti kapasitas terpasang 3.420 kWp.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.16 – 3.18</span><b>Kapasitas, bobot, dan keluaran PLTS</b></div>
-    <div class="rumus">α<sub>PV</sub> = P<sub>PV,tot</sub> ÷ P<sub>puncak</sub>&nbsp;·&nbsp;w<sub>i</sub> = S<sub>i</sub> ÷ Σ S<sub>j</sub>&nbsp;·&nbsp;P<sub>PV,i</sub>(t) = α<sub>PV</sub> × P<sub>tot</sub> × w<sub>i</sub> × G(t)/G<sub>ref</sub> × PR</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Bobot gardu adalah daya tersambung pelanggan potensialnya dibagi total seluruh gardu, sehingga jumlah seluruh bobot pasti satu. Keluarannya = kapasitas × bobot × perbandingan irradiansi × performance ratio.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menyebarkan kapasitas PLTS ke gardu menurut daya tersambung, dan mengubah kapasitas kWp menjadi daya sesaat menurut irradiansi jam itu.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>G07, w = 0,1444, pukul 11.00 hari cerah, G = 835,7 W/m², PR = 0,80.</p><div class="hit">0,1444 × 3420 = 494,0 kWp<br>494,0 × 835,7/1000 × 0,80 = 330,2 kW</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Normalisasi terhadap beban puncak mengikuti Qamar dkk. (2023) [17]. Bentuk performance ratio dari Khalid dkk. (2016) [27], sejalan IEC 61724-1.</p></div>
-    </div>
-  </div>
-
-  <div class="nota"><b>Mengapa pakai performance ratio, bukan model modul</b>
-    Model modul lengkap memerlukan data modul dan suhu sel setiap pelanggan, yang tidak tersedia. Performance ratio 0,80 sudah mencakup rugi suhu, inverter, kabel, dan kekotoran modul dalam satu angka.</div>
-</section>
-
-<!-- =================== 8. TAHAP 6 =================== -->
-<section id="p-t6" data-menu="6 · Penetapan HC" data-grup="Tahapan" data-ikon="⑥" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 6</div>
-  <h1>Penetapan Hosting Capacity</h1>
-  </div>
-  <p class="lead">Di sinilah seluruh tahap sebelumnya bertemu menjadi satu angka.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 2.28</span><b>Daerah layak</b></div>
-    <div class="rumus">F<sub>s</sub> = { (a<sub>EV</sub>, α<sub>PV</sub>) : 0,90 ≤ V ≤ 1,05 ; L<sub>kabel</sub> ≤ 100 % ; L<sub>trafo</sub> ≤ 100 % ; P<sub>GI</sub> ≥ 0 ; ∀ bus, ∀ cabang, ∀ t ∈ T }</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Tanda titik dua dibaca “sedemikian rupa sehingga”. Lambang ∀ berarti syarat harus berlaku pada <em>setiap</em> elemen dan <em>setiap</em> interval, bukan rata-rata.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Satu pelanggaran pada satu interval saja sudah cukup menggugurkan suatu penetrasi. Empat indikator: PI-1 tegangan, PI-2 kabel, PI-3 trafo, PI-4 aliran daya balik.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Pada penyulang ini PI-3 selalu mengikat untuk EV dan PI-4 untuk PLTS. PI-1 dan PI-2 tidak pernah mengikat.</p></div>
-      <div class="sl"><h4>Sumber</h4><p>Kerangka terpadu Benzerga dkk. (2025) [7]. Batas tegangan Permen ESDM No. 4/2009 [30]; batas pembebanan praktik operasi PLN [32].</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 2.29 – 2.30</span><b>Definisi hosting capacity</b></div>
-    <div class="rumus">HC<sub>EV</sub> |<sub>α<sub>PV</sub></sub> = max { a<sub>EV</sub> : (a<sub>EV</sub>, α<sub>PV</sub>) ∈ F<sub>s</sub> }</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Nilai terbesar dari a<sub>EV</sub> sedemikian rupa sehingga pasangan penetrasi itu masih di dalam daerah layak. Garis tegak dengan indeks dibaca “pada kondisi”, yaitu penetrasi teknologi lain ditahan tetap.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Membuat hosting capacity selalu menempel pada skenario tertentu, bukan angka tunggal milik jaringan.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Lihat menu <em>Hitung tangan</em> untuk penetapan lengkapnya.</p></div>
-      <div class="sl"><h4>Sumber</h4><p>Benzerga dkk. (2025) [7].</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.19</span><b>Interpolasi nilai batas</b></div>
-    <div class="rumus">HC = α<sub>1</sub> + (y<sub>lim</sub> − y<sub>1</sub>) × (α<sub>2</sub> − α<sub>1</sub>) ÷ (y<sub>2</sub> − y<sub>1</sub>)</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Tarik garis lurus antara titik aman terakhir dan titik pelanggaran pertama, lalu cari di mana garis itu memotong batas.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Kisi 1 % membuat pelanggaran ditemukan di titik kisi, bukan di batas sebenarnya. Tanpa interpolasi, 17,32 % dilaporkan sebagai 17 %.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Kelas S2 hari MAX, pembebanan T_G07.</p><div class="hit">0,17 + (100−99,620)×0,01 ÷ (100,823−99,620)<br>= 0,1732 → 17,32 %</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Interpolasi linier baku. Penerapannya pada seluruh tabel adalah tindak lanjut arahan Pembimbing 2.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== 9. TAHAP 7 =================== -->
-<section id="p-t7" data-menu="7 · Smart charging" data-grup="Tahapan" data-ikon="⑦" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 7 · kebaruan utama</div>
-  <h1>Partial Smart Charging</h1>
-  </div>
-  <p class="lead">Hasil studi kasus satu penyulang berubah menjadi hubungan yang berlaku untuk penyulang mana pun yang jendela malam dan siangnya dibatasi secara termal.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.20</span><b>Profil pengisian tergeser</b></div>
-    <div class="rumus">u<sub>p</sub>(t) = 0,8p untuk t ∈ siang (10–15) ; 1 − p untuk t ∈ malam (18–22) ; 0 selainnya</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Definisi bercabang: nilainya tergantung jam. Pangsa p adalah bagian energi pengisian yang dipindah ke siang hari.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Faktor 0,8 menjaga energi harian tetap, sehingga perbandingan antar skenario tidak tercampur dengan perubahan jumlah energi.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>p = 0,6 → siang 0,48 selama 5 jam, malam 0,40 selama 4 jam.</p><div class="hit">5×0,48 + 4×0,40 = 2,4 + 1,6 = 4,0 jam ✓</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Gagasan pergeseran ke jam surya mengikuti Fachrizal dkk. (2021) [11]. Bentuk energi-terkonservasi perumusan sendiri.</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.22 – 3.23</span><b>Bentuk tertutup dan pangsa optimum</b></div>
-    <div class="rumus">HC(p) = min { HC<sub>0</sub> ÷ (1 − p) , HC<sub>1</sub> ÷ p }&nbsp;&nbsp;→&nbsp;&nbsp;p* = HC<sub>1</sub> ÷ (HC<sub>0</sub> + HC<sub>1</sub>)&nbsp;,&nbsp; HC* = HC<sub>0</sub> + HC<sub>1</sub></div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Yang lebih kecil di antara dua nilai. Suku pertama naik terhadap p karena beban malam berkurang; suku kedua turun karena beban siang bertambah. Puncaknya tepat ketika keduanya sama besar.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Pangsa optimum ditemukan hanya dari dua simulasi. Juga menjelaskan mengapa PLTS baru berpengaruh di atas p*: PLTS menambah sisa kapasitas siang, jadi mengubah HC₁ tapi tidak HC₀.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Hari MAX: HC₀ = 17,32 %, HC₁ = 27,35 %.</p><div class="hit">p* = 27,35 ÷ 44,67 = 0,612<br>HC* = 17,32 + 27,35 = 44,67 %</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Turunan sendiri. Tidak ada rujukan yang memuat hubungan ini — inilah kebaruan utamanya.</p></div>
-    </div>
-  </div>
-
-  <div class="tb"><table>
-    <thead><tr><th>p</th><th>HC simulasi</th><th>HC Pers. 3.22</th><th>Selisih</th><th>Pembatas</th></tr></thead>
-    <tbody>
-      <tr><td class="n">0,0</td><td class="n">17,32 %</td><td class="n">17,32 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
-      <tr><td class="n">0,4</td><td class="n">28,86 %</td><td class="n">28,86 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
-      <tr class="sorot"><td class="n">0,6</td><td class="n">43,29 %</td><td class="n">43,29 %</td><td class="n">0,0</td><td>T_G07 · 21.30</td></tr>
-      <tr class="sorot"><td class="n">0,8</td><td class="n">34,19 %</td><td class="n">34,19 %</td><td class="n">0,0</td><td>T_G09_2 · 14.30</td></tr>
-      <tr><td class="n">1,0</td><td class="n">27,35 %</td><td class="n">27,35 %</td><td class="n">0,0</td><td>T_G09_2 · 14.30</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="nota"><b>Bukti bahwa bentuk tertutup ini benar</b>
-    Pada run OpenDSS Anda, selisih antara simulasi dan bentuk tertutup <strong>nol pada setiap nilai p</strong>, di ketiga hari. Dan perpindahan pembatasnya terlihat langsung: sampai p = 0,6 yang mengikat T_G07 pukul 21.30 (jendela malam); pada p = 0,8 berpindah ke T_G09_2 pukul 14.30 (jendela siang) dan HC turun. Nilai p* = 0,612 jatuh persis di titik perpindahan itu — dan itu tidak diatur di dalam skrip.</div>
-</section>
-
-<!-- =================== 10. TAHAP 8 =================== -->
-<section id="p-t8" data-menu="8 · Realokasi per gardu" data-grup="Tahapan" data-ikon="⑧" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Tahap 8</div>
-  <h1>Realokasi Adopsi per Gardu</h1>
-  </div>
-  <p class="lead">Strategi paling efektif di penyulang ini, dan tidak menambah satu pun peralatan.</p>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.26 – 3.27</span><b>Linearisasi dan batas tiap gardu</b></div>
-    <div class="rumus">L<sub>i</sub>(t) ≈ L<sub>i</sub>(t,0) + k<sub>i</sub>(t) × a<sub>i</sub>&nbsp;&nbsp;·&nbsp;&nbsp;β<sub>i</sub> = min<sub>t</sub> [ (100 − L<sub>i</sub>(t,0)) ÷ k<sub>i</sub>(t) ]</div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Pembebanan kira-kira garis lurus terhadap adopsi. β adalah nilai terkecil, atas seluruh interval, dari sisa kapasitas dibagi kemiringan. Lambang min di luar penting: jam paling kritis yang menentukan, bukan rata-rata.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Menentukan adopsi terbesar yang masih dapat ditampung setiap transformator, hanya dari dua kali aliran daya.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>T_G07 hari MAX: dasar 79,32 %, kemiringan 119,4 % per satuan adopsi.</p><div class="hit">β = (100 − 79,32) ÷ 119,4 = 0,173</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Perumusan sendiri. Dibenarkan oleh hasil: β = 0,1730 sama dengan HC 0,1732 hasil sapuan penuh.</p></div>
-    </div>
-  </div>
-
-  <div class="kartu">
-    <div class="kkepala"><span class="tag">Pers. 3.29</span><b>Hosting capacity realokasi</b></div>
-    <div class="rumus">HC<sub>R</sub> = Σ<sub>i</sub> min(β<sub>i</sub>, 1) × E<sub>i</sub> ÷ Σ<sub>i</sub> E<sub>i</sub></div>
-    <div class="sel4">
-      <div class="sl"><h4>Cara membaca</h4><p>Rata-rata berbobot: gardu dengan potensi daya pengisian besar berpengaruh lebih besar terhadap angka penyulang.</p></div>
-      <div class="sl"><h4>Fungsinya</h4><p>Batas atas manfaat kebijakan bila adopsi boleh berbeda antar gardu. Penyelesaiannya eksak tanpa optimal power flow, karena kendala setiap transformator terpisah dan fungsi tujuannya naik terhadap setiap adopsi.</p></div>
-      <div class="sl"><h4>Contoh matematis</h4><p>Hari MAX, 12 gardu, hanya 3 yang β &lt; 1.</p><div class="hit">1.490,72 ÷ 2.893,44 = 0,5152 → 51,52 %</div></div>
-      <div class="sl"><h4>Sumber</h4><p>Turunan sendiri. Pembanding pendekatan OPF seperti Hakim dkk. (2025) [15] yang memerlukan penyelesaian jaringan berulang.</p></div>
-    </div>
-  </div>
-
-  <div class="tb"><table>
-    <thead><tr><th>Elemen</th><th>Transformator</th><th>E<sub>i</sub> (kW)</th><th>β<sub>i</sub></th><th>min(β,1)</th></tr></thead>
-    <tbody>
-      <tr class="sorot"><td>ev_g07</td><td>T_G07</td><td class="n">709,98</td><td class="n">0,1730</td><td class="n">0,1730</td></tr>
-      <tr class="sorot"><td>ev_g09_t2</td><td>T_G09_2</td><td class="n">652,98</td><td class="n">0,1904</td><td class="n">0,1904</td></tr>
-      <tr class="sorot"><td>ev_g06</td><td>T_G06</td><td class="n">442,22</td><td class="n">0,3512</td><td class="n">0,3512</td></tr>
-      <tr><td>ev_g04</td><td>T_G04</td><td class="n">237,72</td><td class="n">1,8627</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g05</td><td>T_G05</td><td class="n">203,58</td><td class="n">1,1334</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g13</td><td>T_G13</td><td class="n">159,46</td><td class="n">1,2798</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g09_t1</td><td>T_G09_1</td><td class="n">144,48</td><td class="n">1,8893</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g11</td><td>T_G11</td><td class="n">144,42</td><td class="n">3,4466</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g12</td><td>T_G12</td><td class="n">110,32</td><td class="n">2,6265</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g10</td><td>T_G10</td><td class="n">67,20</td><td class="n">4,0794</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g01</td><td>T_G01_1</td><td class="n">11,04</td><td class="n">26,7805</td><td class="n">1,0000</td></tr>
-      <tr><td>ev_g08</td><td>T_G08_1</td><td class="n">10,04</td><td class="n">33,1673</td><td class="n">1,0000</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="nota"><b>Mengapa kenaikannya sebesar itu</b>
-    Hosting capacity seragam memaksa seluruh penyulang mengikuti gardu paling terbatas, yaitu T_G07 dengan β = 0,173. Padahal sembilan dari dua belas gardu dapat menampung adopsi penuh. Realokasi hanya membebaskan sembilan gardu itu dari batas yang bukan miliknya.</div>
-</section>
-
-<!-- =================== 11. HASIL =================== -->
-<section id="p-hasil" data-menu="Angka akhir" data-grup="Hasil" data-ikon="∑" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Rekap</div>
-  <h1>Angka Akhir dan Urutan Strategi</h1>
-  </div>
-  <p class="lead">Seluruh angka dari run OpenDSS 13 November 2026 dan naskah Bab 4.</p>
-
-  <div class="tb"><table>
-    <thead><tr><th>Besaran</th><th>MAX</th><th>AVG</th><th>MIN</th><th>Pembatas</th></tr></thead>
-    <tbody>
-      <tr><td>HC EV kelas S1</td><td class="n">22,61 %</td><td class="n">28,63 %</td><td class="n">31,44 %</td><td>T_G07</td></tr>
-      <tr class="sorot"><td>HC EV kelas S2</td><td class="n">17,32 %</td><td class="n">21,92 %</td><td class="n">24,07 %</td><td>T_G07</td></tr>
-      <tr><td>HC EV kelas S3</td><td class="n">25,94 %</td><td class="n">32,84 %</td><td class="n">36,06 %</td><td>T_G07</td></tr>
-      <tr><td>HC PLTS kriteria K1</td><td class="n">134,79 %</td><td class="n">123,65 %</td><td class="n">97,50 %</td><td>P<sub>GI</sub> ≥ 0 · 11.00</td></tr>
-      <tr><td>Smart charging HC*</td><td class="n">44,67 %</td><td class="n">52,19 %</td><td class="n">49,10 %</td><td>p* = 0,612 / 0,580 / 0,510</td></tr>
-      <tr><td>Realokasi HC<sub>R</sub></td><td class="n">51,52 %</td><td class="n">55,13 %</td><td class="n">56,07 %</td><td>3 gardu dari 12</td></tr>
-      <tr><td>Trafo sisip 400 kVA</td><td class="n">19,05 %</td><td class="n">25,02 %</td><td class="n">25,73 %</td><td>pindah ke T_G09_2</td></tr>
-    </tbody>
-  </table></div>
-
-  <h2>Urutan efektivitas strategi, hari MAX</h2>
-  <div class="tb"><table>
-    <thead><tr><th>Strategi</th><th>HC</th><th>ΔHC</th><th>Biaya peralatan</th></tr></thead>
-    <tbody>
-      <tr><td>Realokasi adopsi per gardu</td><td class="n">51,52 %</td><td class="n">+34,20</td><td>nihil, hanya kebijakan</td></tr>
-      <tr><td>Partial smart charging p*</td><td class="n">44,67 %</td><td class="n">+27,35</td><td>pengendali pengisian</td></tr>
-      <tr><td>Transformator sisip 400 kVA</td><td class="n">19,05 %</td><td class="n">+1,73</td><td>satu transformator</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="nota awas"><b>Tiga hal yang akan ditanya penguji</b>
-    <strong>Trafo sisip 400 dan 630 kVA memberi hasil sama persis.</strong> Bukan kekeliruan — setelah T_G07 dibantu, pembatas pindah ke T_G09_2, sehingga kapasitas lebih besar tidak berguna. Menyisipkan lebih dari 400 kVA adalah pemborosan.
-    <br><br><strong>Hari MIN memberi HC EV tertinggi</strong> walau bebannya paling rendah, karena yang menentukan sisa kapasitas T_G07 pada jendela pengisian, bukan beban total penyulang.
-    <br><br><strong>Manfaat smart charging paling kecil justru pada hari MIN</strong> (HC₁ hanya 25,03 % terhadap HC₀ 24,07 %), karena T_G09_2 sudah terbebani 81,27 % pukul 15.00 sehingga jendela siang nyaris tanpa sisa kapasitas.</div>
-</section>
-
-<!-- =================== 12. HITUNG TANGAN =================== -->
-<section id="p-tangan" data-menu="Hitung tangan · 3 iterasi" data-grup="Latihan" data-ikon="✎" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Contoh lengkap</div>
-  <h1>Penetapan HC dengan Tiga Iterasi</h1>
-  </div>
-  <p class="lead">Penetapan hosting capacity EV kelas S2 hari MAX, dikerjakan persis seperti simulasi, tetapi dengan kalkulator. Tiga iterasi cukup untuk sampai ke angka akhir.</p>
-
-  <h2>Persiapan · dua aliran daya untuk mendapat kemiringan</h2>
-  <div class="iter">
-    <div class="br"><span>Transformator pembatas</span><b>T_G07 · 630 kVA</b></div>
-    <div class="br"><span>Jam pembatas, jendela 18.00 – 22.00</span><b>21.30</b></div>
-    <div class="br"><span>Potensi daya pengisian E, kelas S2</span><b>709,98 kW</b></div>
-    <div class="br"><span>Titik A · a = 0,05</span><b>L = 85,258 %</b></div>
-    <div class="br"><span>Titik B · a = 0,17</span><b>L = 99,620 %</b></div>
-    <div class="br"><span>Kemiringan k = (99,620 − 85,258) ÷ 0,12</span><b>119,68 %/satuan</b></div>
-    <div class="br"><span>Periksa L(0) = 85,258 − 119,68 × 0,05</span><b>79,27 % ≈ 79,32 % ✓</b></div>
-  </div>
-  <p style="font-size:.86rem;color:var(--teks2)">Baris terakhir adalah pemeriksaan: garis yang Anda bentuk harus menembus pembebanan dasar T_G07 yang sebenarnya, 79,32 %. Selisih 0,05 poin menunjukkan linearisasinya sah.</p>
-
-  <h2>Tiga iterasi</h2>
-  <div class="iter">
-    <div class="iterk"><span class="lenc ok">ITERASI 1 · AMAN</span><b>a<sub>EV</sub> = 16 %</b></div>
-    <div class="br"><span>Daya pengisian · 0,16 × 709,98</span><b>113,60 kW</b></div>
-    <div class="br"><span>Pembebanan · 85,258 + 119,68 × 0,11</span><b>98,42 %</b></div>
-    <div class="br"><span>Periksa Pers. 2.28 · 98,42 ≤ 100 ?</span><b>ya → lanjutkan</b></div>
-    <div class="br"><span>Simulasi memberi</span><b>98,417 %</b></div>
-  </div>
-  <div class="iter">
-    <div class="iterk"><span class="lenc ok">ITERASI 2 · AMAN</span><b>a<sub>EV</sub> = 17 %</b></div>
-    <div class="br"><span>Daya pengisian · 0,17 × 709,98</span><b>120,70 kW</b></div>
-    <div class="br"><span>Pembebanan · 85,258 + 119,68 × 0,12</span><b>99,62 %</b></div>
-    <div class="br"><span>Periksa Pers. 2.28 · 99,62 ≤ 100 ?</span><b>ya → lanjutkan</b></div>
-    <div class="br"><span>Simulasi memberi</span><b>99,620 %</b></div>
-  </div>
-  <div class="iter">
-    <div class="iterk"><span class="lenc no">ITERASI 3 · MELANGGAR</span><b>a<sub>EV</sub> = 18 %</b></div>
-    <div class="br"><span>Daya pengisian · 0,18 × 709,98</span><b>127,80 kW</b></div>
-    <div class="br"><span>Pembebanan · 85,258 + 119,68 × 0,13</span><b>100,82 %</b></div>
-    <div class="br"><span>Periksa Pers. 2.28 · 100,82 ≤ 100 ?</span><b>TIDAK → berhenti</b></div>
-    <div class="br"><span>Simulasi memberi</span><b>100,823 %</b></div>
-  </div>
-
-  <h2>Interpolasi dan hasil akhir</h2>
-  <div class="iter">
-    <div class="br"><span>Pers. 3.19 · 0,17 + (100 − 99,62) × 0,01 ÷ (100,82 − 99,62)</span><b>0,1732</b></div>
-    <div class="br"><span><strong>Hosting capacity EV kelas S2 hari MAX</strong></span><b style="color:var(--hijau)">17,32 %</b></div>
-    <div class="br"><span>Simulasi OpenDSS</span><b>17,32 %</b></div>
-    <div class="br"><span>PowerFactory</span><b>17,3 %</b></div>
-  </div>
-
-  <h2>Apa arti 17,32 % itu di lapangan</h2>
-  <div class="iter">
-    <div class="br"><span>Daya pengisian yang ditampung · 0,1732 × 709,98</span><b>122,97 kW</b></div>
-    <div class="br"><span>Motor listrik di area G07 · 0,1732 × 213</span><b>≈ 36 unit</b></div>
-    <div class="br"><span>Mobil listrik di area G07 · 0,1732 × 99</span><b>≈ 17 unit</b></div>
-    <div class="br"><span>Periksa · 36 × 1,00 + 17 × 5,02</span><b>121,3 kW ≈ 122,97 kW ✓</b></div>
-  </div>
-
-  <div class="nota"><b>Yang dibuktikan latihan ini</b>
-    Kenaikan pembebanan per satu poin penetrasi hampir tetap, yaitu 1,197 poin. Ketetapan itulah yang membenarkan linearisasi Pers. 3.26, dan karena itu pula realokasi dapat diselesaikan eksak tanpa optimal power flow. Tiga iterasi dengan kalkulator menghasilkan angka yang sama dengan 18 kali penyelesaian aliran daya.</div>
-</section>
-
-<!-- =================== 13. LATIHAN SOAL =================== -->
-<section id="p-soal" data-menu="Latihan soal acak" data-grup="Latihan" data-ikon="∞" hidden>
-  <div class="kepala">
-  <div class="eyebrow">Latihan</div>
-  <h1>Soal Acak</h1>
-  </div>
-  <p class="lead">Angkanya berubah setiap kali Anda menjawab benar, jadi tidak ada yang bisa dihafal. Pilih persamaan yang ingin dilatih, atau biarkan acak dari semuanya.</p>
-
-  <div class="cip" id="cip"></div>
-
-  <div class="soal">
-    <div class="soalkepala">
-      <span class="tag" id="s-tag">Pers. 3.1</span>
-      <div class="skor">
-        <span>BENAR <b id="s-benar">0</b> / <b id="s-total">0</b></span>
-        <span>BERUNTUN <b id="s-runtun" class="api">0</b></span>
-        <span>REKOR <b id="s-rekor">0</b></span>
-      </div>
-    </div>
-    <div class="soalisi">
-      <div class="pertanyaan" id="s-tanya"></div>
-      <div class="diket" id="s-diket"></div>
-      <div class="jawabbaris">
-        <input id="s-input" type="text" inputmode="decimal" autocomplete="off" placeholder="jawaban Anda" aria-label="Jawaban">
-        <span class="satuan" id="s-satuan"></span>
-        <button class="aksi" id="s-periksa">Periksa</button>
-        <button class="aksi sunyi" id="s-langkah">Lihat langkah</button>
-        <button class="aksi sunyi" id="s-lewat">Soal lain</button>
-      </div>
-      <div class="umpan" id="s-umpan"></div>
-      <div class="langkah" id="s-urai"><ol id="s-urai-ol"></ol></div>
-    </div>
-  </div>
-
-  <div class="nota"><b>Cara memakai</b>
-    Koma dan titik sama-sama diterima sebagai pemisah desimal. Toleransi jawaban sekitar 0,5 persen, jadi pembulatan wajar tetap dihitung benar. Kalau salah dua kali berturut-turut pada soal yang sama, langkah penyelesaiannya terbuka sendiri.</div>
-</section>
-
-</main>
+<style>
+body.terkunci{display:grid;place-items:center;min-height:100vh;padding:24px}
+#muatan{display:contents}
+#gerbang{width:100%;max-width:370px}
+#formkunci{background:var(--panel);border:1px solid var(--garis);border-radius:13px;
+  padding:28px 26px 24px;text-align:center}
+.glogo{width:46px;height:46px;border-radius:10px;background:var(--hijau);color:#06201a;
+  display:grid;place-items:center;font:700 19px var(--m);margin:0 auto 16px}
+#formkunci h1{font-size:1.2rem;margin:0 0 6px;font-weight:700}
+#formkunci p{color:var(--teks2);font-size:.82rem;margin:0 0 20px;line-height:1.55}
+#formkunci label{display:block;text-align:left;font:600 9.5px var(--m);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teks3);margin-bottom:7px}
+#sandi{width:100%;font-family:var(--m);font-size:.95rem;padding:11px 13px;border-radius:8px;
+  background:#0c171d;border:1px solid var(--garis);color:var(--teks);margin-bottom:12px}
+#sandi:focus{outline:2px solid var(--hijau);border-color:var(--hijau)}
+#tombolbuka{width:100%;font:600 13px var(--f);padding:11px;border-radius:8px;cursor:pointer;
+  background:var(--hijau);border:1px solid var(--hijau);color:#06201a}
+#tombolbuka:hover{filter:brightness(1.08)}
+#tombolbuka:disabled{opacity:.55;cursor:progress}
+#tombolbuka:focus-visible{outline:2px solid var(--hijau);outline-offset:2px}
+#gsalah{margin-top:13px;font-size:.82rem;color:var(--merah);min-height:1.2em}
+</style>
 
 <script>
 (function(){
-'use strict';
+  'use strict';
+  var GARAM = "n2H2Qp1b5eXQImt4xCeTHA==", IV = "qR3VWOFCpfkEKQI6", TEKS = "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", PUTARAN = 310000;
+  var b = document.body, g = document.getElementById('gerbang'),
+      muat = document.getElementById('muatan'), inp = document.getElementById('sandi'),
+      tb = document.getElementById('tombolbuka'), pesan = document.getElementById('gsalah');
+  b.classList.add('terkunci');
 
-/* ============== menu dan panel ============== */
-var panel = Array.prototype.slice.call(document.querySelectorAll('main > section'));
-var menu  = document.getElementById('menu');
-var grupTerakhir = null;
-panel.forEach(function(s, i){
-  if (s.dataset.grup !== grupTerakhir){
-    grupTerakhir = s.dataset.grup;
-    var g = document.createElement('div');
-    g.className = 'grup'; g.textContent = grupTerakhir;
-    menu.appendChild(g);
+  function dari64(s){
+    var r = atob(s), a = new Uint8Array(r.length);
+    for (var i = 0; i < r.length; i++) a[i] = r.charCodeAt(i);
+    return a;
   }
-  var b = document.createElement('button');
-  b.type = 'button';
-  b.innerHTML = '<i>' + s.dataset.ikon + '</i><span>' + s.dataset.menu + '</span>';
-  if (i === 0) b.classList.add('aktif');
-  b.addEventListener('click', function(){ buka(s.id); });
-  b.dataset.untuk = s.id;
-  menu.appendChild(b);
-});
 
-function buka(id){
-  panel.forEach(function(s){ s.hidden = (s.id !== id); });
-  Array.prototype.forEach.call(menu.querySelectorAll('button'), function(b){
-    b.classList.toggle('aktif', b.dataset.untuk === id);
-  });
-  var nama = id.replace(/^p-/, '');
-  if (location.hash.slice(1) !== nama) history.replaceState(null, '', '#' + nama);
-  window.scrollTo(0, 0);
-}
-function dariHash(){
-  var n = location.hash.slice(1);
-  var s = document.getElementById('p-' + n);
-  buka(s ? s.id : panel[0].id);
-}
-window.addEventListener('hashchange', dariHash);
-dariHash();
+  function buka(frasa){
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey('raw', enc.encode(frasa), 'PBKDF2', false, ['deriveKey'])
+      .then(function(bahan){
+        return crypto.subtle.deriveKey(
+          { name:'PBKDF2', salt:dari64(GARAM), iterations:PUTARAN, hash:'SHA-256' },
+          bahan, { name:'AES-GCM', length:256 }, false, ['decrypt']);
+      })
+      .then(function(kunci){
+        return crypto.subtle.decrypt({ name:'AES-GCM', iv:dari64(IV) }, kunci, dari64(TEKS));
+      })
+      .then(function(buf){
+        return JSON.parse(new TextDecoder().decode(buf));
+      });
+  }
 
-/* ============== pembangkit soal ============== */
-function acak(a, b, d){ var v = a + Math.random() * (b - a); return d == null ? v : +v.toFixed(d); }
-function pilih(a){ return a[Math.floor(Math.random() * a.length)]; }
-function ang(x, d){
-  if (d == null) d = 2;
-  return x.toLocaleString('id-ID', { minimumFractionDigits: d, maximumFractionDigits: d });
-}
-function bulat(x){ return x.toLocaleString('id-ID'); }
+  function pasang(isi){
+    muat.innerHTML = isi.h;
+    g.remove();
+    b.classList.remove('terkunci');
+    try { sessionStorage.setItem('hc-kunci', inp.value); } catch(e){}
+    new Function(isi.s)();
+  }
 
-var GARDU = ['G05','G06','G07','G08','G09','G10','G11','G12','G13','G01','G02','G04'];
-
-var BANK = [
-{ kode:'3.1', nama:'Pers. 3.1 · daya dari register', buat: function(){
-    var g = pilih(GARDU), E = acak(0.18, 1.45, 3), F = pilih([40,60,80,100,120,160,200,300,400,600,800,1000]);
-    var j = E * F * 2;
-    return { tag:'Pers. 3.1', satuan:'kW',
-      tanya:'Meter Trafo Distribusi gardu <b>'+g+'</b> mencatat dua register 15 menit yang berjumlah <b>'+ang(E,3)+' kWh</b> pada sisi sekunder. Faktor kali meter gardu itu <b>'+bulat(F)+'</b>. Berapa daya aktif gardu pada interval 30 menit tersebut?',
-      diket:[['Energi 30 menit, E', ang(E,3)+' kWh'],['Faktor kali meter, FKM', bulat(F)],['Lama interval', '0,5 jam']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>P = E × FKM × 2</b>, karena P = E ÷ 0,5 jam',
-        'Energi sisi primer: '+ang(E,3)+' × '+bulat(F)+' = <b>'+ang(E*F,3)+' kWh</b>',
-        'Jadikan daya rata-rata: '+ang(E*F,3)+' ÷ 0,5 = '+ang(E*F,3)+' × 2',
-        'Hasil: <b>'+ang(j,2)+' kW</b>'
-      ]};
-  }},
-
-{ kode:'3.2', nama:'Pers. 3.2 · beban ekuivalen', buat: function(){
-    var Pgi = Math.round(acak(1900, 3500)), f = acak(0.94, 0.965, 4);
-    var Smtd = Math.round(Pgi * f), r = 0.01, w = acak(0.04, 0.19, 4);
-    var sisa = Pgi * (1 - r) - Smtd, j = w * sisa;
-    return { tag:'Pers. 3.2', satuan:'kW',
-      tanya:'Pada satu interval, meter penyulang gardu induk mencatat <b>'+bulat(Pgi)+' kW</b>, sedangkan jumlah daya seluruh gardu terukur <b>'+bulat(Smtd)+' kW</b>. Fraksi rugi teknis 1 %. Berapa beban ekuivalen 20 kV untuk gardu dengan porsi energi <b>'+ang(w,4)+'</b>?',
-      diket:[['Daya gardu induk, P_GI', bulat(Pgi)+' kW'],['Jumlah daya gardu, Σ P_MTD', bulat(Smtd)+' kW'],['Fraksi rugi, r', '0,01'],['Porsi energi gardu, w', ang(w,4)]],
-      jawab:j,
-      urai:[
-        'Rumus: <b>P_eq = w × [ P_GI × (1 − r) − Σ P_MTD ]</b>',
-        'Daya GI setelah rugi: '+bulat(Pgi)+' × 0,99 = <b>'+ang(Pgi*0.99,1)+' kW</b>',
-        'Sisa yang belum terjelaskan: '+ang(Pgi*0.99,1)+' − '+bulat(Smtd)+' = <b>'+ang(sisa,1)+' kW</b>',
-        'Porsi gardu ini: '+ang(w,4)+' × '+ang(sisa,1)+' = <b>'+ang(j,2)+' kW</b>'
-      ]};
-  }},
-
-{ kode:'3.11', nama:'Pers. 3.11 · daya pengisian', buat: function(){
-    var kelas = pilih([['S1',16],['S2',24],['S3',32]]), V = 220, pf = 0.95;
-    var j = V * kelas[1] * pf / 1000;
-    return { tag:'Pers. 3.11', satuan:'kW',
-      tanya:'Pengisi daya rumah tangga kelas <b>'+kelas[0]+'</b> menurut IEC 61851-1 Mode 3 menarik arus <b>'+kelas[1]+' A</b> satu fasa pada tegangan nominal pelanggan <b>220 V</b> dengan faktor daya <b>0,95</b>. Berapa daya aktif pengisiannya?',
-      diket:[['Tegangan nominal, V_n','220 V'],['Arus pengisian, I',''+kelas[1]+' A'],['Faktor daya, cos φ','0,95']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>P = V × I × cos φ</b>, daya satu fasa',
-        'Hitung: 220 × '+kelas[1]+' × 0,95 = <b>'+ang(V*kelas[1]*pf,0)+' W</b>',
-        'Jadikan kW: ÷ 1000 → <b>'+ang(j,2)+' kW</b>'
-      ]};
-  }},
-
-{ kode:'3.13', nama:'Pers. 3.13 · beban pengisian gardu', buat: function(){
-    var g = pilih(GARDU), nm = Math.round(acak(60, 320)), nb = Math.round(acak(25, 140));
-    var kelas = pilih([['S1',3.34],['S2',5.02],['S3',6.69]]), a = acak(0.08, 0.45, 2);
-    var E = nm * 1.00 + nb * kelas[1], j = a * E;
-    return { tag:'Pers. 3.13', satuan:'kW',
-      tanya:'Gardu <b>'+g+'</b> memiliki <b>'+bulat(nm)+'</b> pelanggan potensial motor listrik (1,00 kW) dan <b>'+bulat(nb)+'</b> pelanggan potensial mobil listrik kelas <b>'+kelas[0]+'</b> ('+ang(kelas[1],2)+' kW). Pada pangsa adopsi <b>'+ang(a*100,0)+' %</b> dan koinsidensi penuh, berapa beban pengisian gardu itu pada jam puncak pengisian?',
-      diket:[['Pelanggan motor','N = '+bulat(nm)+' · 1,00 kW'],['Pelanggan mobil '+kelas[0],'N = '+bulat(nb)+' · '+ang(kelas[1],2)+' kW'],['Pangsa adopsi, a_EV', ang(a*100,0)+' %'],['Koinsidensi, c','1 · profil u(t) = 1']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>P_EV = c × u(t) × Σ N × P_chg</b>, dengan c = 1 dan u = 1 pada jam puncak',
-        'Potensi adopsi penuh: '+bulat(nm)+' × 1,00 + '+bulat(nb)+' × '+ang(kelas[1],2)+' = <b>'+ang(E,2)+' kW</b>',
-        'Pada adopsi '+ang(a*100,0)+' %: '+ang(a,2)+' × '+ang(E,2)+' = <b>'+ang(j,2)+' kW</b>'
-      ]};
-  }},
-
-{ kode:'3.18', nama:'Pers. 3.18 · keluaran PLTS', buat: function(){
-    var g = pilih(GARDU), tot = 3420, w = acak(0.03, 0.18, 4);
-    var G = Math.round(acak(180, 960)), PR = 0.80, alfa = pilih([0.5,0.75,1.0]);
-    var kwp = alfa * tot * w, j = kwp * G / 1000 * PR;
-    return { tag:'Pers. 3.18', satuan:'kW',
-      tanya:'Kapasitas PLTS penyulang pada penetrasi penuh <b>3.420 kWp</b>. Gardu <b>'+g+'</b> berbobot <b>'+ang(w,4)+'</b>. Pada penetrasi <b>'+ang(alfa*100,0)+' %</b> dan irradiansi <b>'+bulat(G)+' W/m²</b> dengan performance ratio 0,80, berapa daya keluaran PLTS gardu itu?',
-      diket:[['Kapasitas penuh penyulang','3.420 kWp'],['Penetrasi, α_PV', ang(alfa*100,0)+' %'],['Bobot gardu, w', ang(w,4)],['Irradiansi, G', bulat(G)+' W/m²'],['Performance ratio, PR','0,80']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>P_PV = α × P_tot × w × G/1000 × PR</b>',
-        'Kapasitas terpasang gardu: '+ang(alfa,2)+' × 3420 × '+ang(w,4)+' = <b>'+ang(kwp,2)+' kWp</b>',
-        'Perbandingan irradiansi: '+bulat(G)+' ÷ 1000 = <b>'+ang(G/1000,3)+'</b>',
-        'Keluaran: '+ang(kwp,2)+' × '+ang(G/1000,3)+' × 0,80 = <b>'+ang(j,2)+' kW</b>'
-      ]};
-  }},
-
-{ kode:'3.19', nama:'Pers. 3.19 · interpolasi batas', buat: function(){
-    var a1 = Math.round(acak(8, 42)) / 100;
-    var y1 = acak(96.5, 99.85, 3), y2 = acak(100.15, 101.9, 3);
-    var j = (a1 + (100 - y1) * 0.01 / (y2 - y1)) * 100;
-    return { tag:'Pers. 3.19', satuan:'%',
-      tanya:'Sapuan dengan kisi 1 % memberi pembebanan transformator <b>'+ang(y1,3)+' %</b> pada penetrasi <b>'+ang(a1*100,0)+' %</b>, lalu <b>'+ang(y2,3)+' %</b> pada <b>'+ang(a1*100+1,0)+' %</b>. Berapa hosting capacity setelah interpolasi?',
-      diket:[['Titik aman terakhir, α₁', ang(a1*100,0)+' %'],['Pembebanan di situ, y₁', ang(y1,3)+' %'],['Titik melanggar, α₂', ang(a1*100+1,0)+' %'],['Pembebanan di situ, y₂', ang(y2,3)+' %'],['Batas, y_lim','100 %']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>HC = α₁ + (y_lim − y₁) × (α₂ − α₁) ÷ (y₂ − y₁)</b>',
-        'Jarak ke batas: 100 − '+ang(y1,3)+' = <b>'+ang(100-y1,3)+' poin</b>',
-        'Kenaikan per satu langkah: '+ang(y2,3)+' − '+ang(y1,3)+' = <b>'+ang(y2-y1,3)+' poin</b>',
-        'Bagian langkah yang terpakai: '+ang(100-y1,3)+' ÷ '+ang(y2-y1,3)+' = <b>'+ang((100-y1)/(y2-y1),4)+'</b>',
-        'HC = '+ang(a1*100,0)+' + '+ang((100-y1)/(y2-y1),4)+' × 1 = <b>'+ang(j,2)+' %</b>'
-      ]};
-  }},
-
-{ kode:'3.15', nama:'Pers. 3.15 · koinsidensi', buat: function(){
-    var hc = acak(12, 36, 2), c = pilih([0.25,0.3,0.4,0.5,0.6,0.75,0.8]);
-    var j = hc / c;
-    return { tag:'Pers. 3.15', satuan:'%',
-      tanya:'Hosting capacity EV pada koinsidensi penuh adalah <b>'+ang(hc,2)+' %</b>. Literatur melaporkan koefisien koinsidensi <b>'+ang(c,2)+'</b> untuk kelompok pengisi daya rumah tangga. Berapa hosting capacity pada koinsidensi tersebut?',
-      diket:[['HC pada c = 1', ang(hc,2)+' %'],['Koefisien koinsidensi, c', ang(c,2)]],
-      jawab:j,
-      urai:[
-        'Rumus: <b>HC(c) = HC(1) ÷ c</b>, berlaku karena c dan a_EV masuk hanya sebagai hasil kali',
-        'Hitung: '+ang(hc,2)+' ÷ '+ang(c,2)+' = <b>'+ang(j,2)+' %</b>',
-        'Catatan: daya pengisian yang ditampung jaringan <b>tidak berubah</b>; yang berubah hanya satuan penyebutnya'
-      ]};
-  }},
-
-{ kode:'3.23', nama:'Pers. 3.23 · pangsa optimum p*', buat: function(){
-    var hc0 = acak(12, 30, 2), hc1 = acak(hc0 * 1.05, hc0 * 2.2, 2);
-    var j = hc1 / (hc0 + hc1) * 100;
-    return { tag:'Pers. 3.23', satuan:'%',
-      tanya:'Simulasi memberi hosting capacity tanpa pergeseran <b>HC₀ = '+ang(hc0,2)+' %</b> dan dengan pergeseran penuh ke siang <b>HC₁ = '+ang(hc1,2)+' %</b>. Berapa pangsa pergeseran optimum p*?',
-      diket:[['HC tanpa pergeseran, HC₀', ang(hc0,2)+' %'],['HC pergeseran penuh, HC₁', ang(hc1,2)+' %']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>p* = HC₁ ÷ (HC₀ + HC₁)</b>',
-        'Jumlah: '+ang(hc0,2)+' + '+ang(hc1,2)+' = <b>'+ang(hc0+hc1,2)+'</b> — dan ini sekaligus HC* maksimumnya',
-        'Pangsa optimum: '+ang(hc1,2)+' ÷ '+ang(hc0+hc1,2)+' = '+ang(hc1/(hc0+hc1),4),
-        'Jadi p* = <b>'+ang(j,2)+' %</b>, dengan HC* = '+ang(hc0+hc1,2)+' %'
-      ]};
-  }},
-
-{ kode:'3.27', nama:'Pers. 3.27 · batas adopsi gardu', buat: function(){
-    var g = pilih(GARDU), L0 = acak(38, 88, 2), k = acak(42, 165, 1);
-    var j = (100 - L0) / k;
-    return { tag:'Pers. 3.27', satuan:'(tanpa satuan)',
-      tanya:'Transformator <b>T_'+g+'</b> terbebani <b>'+ang(L0,2)+' %</b> pada jam paling kritis tanpa kendaraan listrik. Dua kali aliran daya memberi kemiringan <b>'+ang(k,1)+' %</b> per satuan adopsi pada jam itu. Berapa batas adopsi β untuk transformator ini?',
-      diket:[['Pembebanan dasar, L(t,0)', ang(L0,2)+' %'],['Kemiringan, k(t)', ang(k,1)+' % per satuan adopsi'],['Batas pembebanan','100 %']],
-      jawab:j,
-      urai:[
-        'Rumus: <b>β = (100 − L(t,0)) ÷ k(t)</b> pada jam paling kritis',
-        'Sisa kapasitas: 100 − '+ang(L0,2)+' = <b>'+ang(100-L0,2)+' poin</b>',
-        'Bagi kemiringan: '+ang(100-L0,2)+' ÷ '+ang(k,1)+' = <b>'+ang(j,4)+'</b>',
-        'Artinya transformator ini sanggup menampung adopsi sampai <b>'+ang(j*100,2)+' %</b>'
-      ]};
-  }},
-
-{ kode:'3.29', nama:'Pers. 3.29 · HC realokasi', buat: function(){
-    var n = 4, baris = [], num = 0, den = 0;
-    for (var i = 0; i < n; i++){
-      var E = Math.round(acak(40, 700)), b = Math.random() < 0.5 ? acak(0.1, 0.9, 3) : acak(1.1, 3.5, 3);
-      var pakai = Math.min(b, 1);
-      baris.push({ g:GARDU[i], E:E, b:b, p:pakai });
-      num += pakai * E; den += E;
-    }
-    var j = num / den * 100;
-    return { tag:'Pers. 3.29', satuan:'%',
-      tanya:'Sebuah penyulang kecil punya empat gardu dengan potensi daya pengisian dan batas adopsi β berikut. Berapa hosting capacity penyulang bila adopsi direalokasikan menurut kapasitas masing-masing gardu?',
-      diket: baris.map(function(r){ return ['Gardu '+r.g, 'E = '+bulat(r.E)+' kW · β = '+ang(r.b,3)]; }),
-      jawab:j,
-      urai:[
-        'Rumus: <b>HC_R = Σ min(β, 1) × E ÷ Σ E</b>'
-      ].concat(baris.map(function(r){
-        return 'Gardu '+r.g+': min('+ang(r.b,3)+' ; 1) = '+ang(r.p,3)+' → '+ang(r.p,3)+' × '+bulat(r.E)+' = <b>'+ang(r.p*r.E,2)+'</b>';
-      })).concat([
-        'Pembilang: <b>'+ang(num,2)+' kW</b> · Penyebut: <b>'+bulat(den)+' kW</b>',
-        'HC_R = '+ang(num,2)+' ÷ '+bulat(den)+' = <b>'+ang(j,2)+' %</b>'
-      ])};
-  }}
-];
-
-/* ============== mesin latihan ============== */
-var cip = document.getElementById('cip');
-var pilihan = 'acak';
-var soal = null, salahBeruntun = 0;
-var skor = { benar:0, total:0, runtun:0, rekor:0 };
-
-function bikinCip(label, nilai){
-  var b = document.createElement('button');
-  b.type = 'button'; b.textContent = label; b.dataset.nilai = nilai;
-  if (nilai === pilihan) b.classList.add('aktif');
-  b.addEventListener('click', function(){
-    pilihan = nilai;
-    Array.prototype.forEach.call(cip.querySelectorAll('button'), function(x){
-      x.classList.toggle('aktif', x.dataset.nilai === nilai);
+  document.getElementById('formkunci').addEventListener('submit', function(e){
+    e.preventDefault();
+    var frasa = inp.value;
+    if (!frasa) { pesan.textContent = 'Frasa sandi belum diisi.'; return; }
+    tb.disabled = true; tb.textContent = 'Membuka…'; pesan.textContent = '';
+    buka(frasa).then(pasang).catch(function(){
+      tb.disabled = false; tb.textContent = 'Buka panel';
+      pesan.textContent = 'Frasa sandi salah.';
+      inp.select();
     });
-    soalBaru();
   });
-  cip.appendChild(b);
-}
-bikinCip('Acak semua', 'acak');
-BANK.forEach(function(s){ bikinCip(s.nama.split(' · ')[0], s.kode); });
 
-var elTag = document.getElementById('s-tag'), elTanya = document.getElementById('s-tanya'),
-    elDiket = document.getElementById('s-diket'), elInput = document.getElementById('s-input'),
-    elSatuan = document.getElementById('s-satuan'), elUmpan = document.getElementById('s-umpan'),
-    elUrai = document.getElementById('s-urai'), elUraiOl = document.getElementById('s-urai-ol');
-
-function soalBaru(){
-  var sumber = (pilihan === 'acak') ? pilih(BANK) : BANK.filter(function(s){ return s.kode === pilihan; })[0];
-  soal = sumber.buat();
-  salahBeruntun = 0;
-  elTag.textContent = soal.tag;
-  elTanya.innerHTML = soal.tanya;
-  elDiket.innerHTML = soal.diket.map(function(d){
-    return '<div><span>' + d[0] + '</span><b>' + d[1] + '</b></div>';
-  }).join('');
-  elSatuan.textContent = soal.satuan;
-  elInput.value = '';
-  elUmpan.className = 'umpan';
-  elUrai.className = 'langkah';
-  elUraiOl.innerHTML = soal.urai.map(function(u){ return '<li>' + u + '</li>'; }).join('');
-  elInput.focus();
-}
-
-function periksa(){
-  if (!soal) return;
-  var teks = elInput.value.trim().replace(/\s|%/g, '');
-  if (teks.indexOf(',') >= 0 && teks.indexOf('.') >= 0) teks = teks.replace(/\./g, '').replace(/,/g, '.');
-  else if (teks.indexOf(',') >= 0) teks = teks.replace(/,/g, '.');
-  var v = parseFloat(teks);
-  if (isNaN(v)){
-    elUmpan.className = 'umpan tampil salah';
-    elUmpan.innerHTML = 'Isi dulu jawabannya. Koma atau titik sama-sama diterima.';
-    return;
-  }
-  skor.total++;
-  var tol = Math.max(Math.abs(soal.jawab) * 0.005, 0.005);
-  if (Math.abs(v - soal.jawab) <= tol){
-    skor.benar++; skor.runtun++;
-    if (skor.runtun > skor.rekor) skor.rekor = skor.runtun;
-    elUmpan.className = 'umpan tampil benar';
-    elUmpan.innerHTML = '<b>Benar.</b> Jawaban tepatnya ' + ang(soal.jawab, 2) + ' ' + soal.satuan +
-      '. Soal berikutnya sudah disiapkan dengan angka baru.';
-    perbaruiSkor();
-    setTimeout(soalBaru, 1100);
-  } else {
-    skor.runtun = 0; salahBeruntun++;
-    elUmpan.className = 'umpan tampil salah';
-    elUmpan.innerHTML = salahBeruntun >= 2
-      ? '<b>Belum tepat.</b> Langkah penyelesaiannya saya buka di bawah.'
-      : '<b>Belum tepat.</b> Periksa lagi urutan operasinya, lalu coba sekali lagi.';
-    if (salahBeruntun >= 2) elUrai.className = 'langkah tampil';
-    perbaruiSkor();
-    elInput.select();
-  }
-}
-function perbaruiSkor(){
-  document.getElementById('s-benar').textContent = skor.benar;
-  document.getElementById('s-total').textContent = skor.total;
-  document.getElementById('s-runtun').textContent = skor.runtun;
-  document.getElementById('s-rekor').textContent = skor.rekor;
-}
-
-document.getElementById('s-periksa').addEventListener('click', periksa);
-document.getElementById('s-lewat').addEventListener('click', soalBaru);
-document.getElementById('s-langkah').addEventListener('click', function(){
-  elUrai.classList.toggle('tampil');
-});
-elInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') periksa(); });
-
-soalBaru();
+  // buka sendiri bila masih dalam sesi peramban yang sama
+  var simpan = null;
+  try { simpan = sessionStorage.getItem('hc-kunci'); } catch(e){}
+  if (simpan){ inp.value = simpan; buka(simpan).then(pasang).catch(function(){ inp.value=''; }); }
+  else { inp.focus(); }
 })();
 </script>
