@@ -21,6 +21,7 @@ panel isi di kanan. Tab pertama adalah bagan alir metodologi.
 | Peta | Pertanyaan penelitian, tiga tujuan, rantai pengolahan data |
 | Tahap 1 | Dari register meter ke profil beban — Pers. (3.1) – (3.5) |
 | Tahap 2 | Model jaringan dan aliran daya — Pers. (2.3) – (2.16) |
+| Tahap 2b | Newton-Raphson dikerjakan tangan, parameter saluran asli, dicocokkan dengan model penuh |
 | Tahap 3 | Validasi terhadap kenyataan — Pers. (3.6) – (3.10) |
 | Tahap 4 | Model beban kendaraan listrik — Pers. (3.11) – (3.15) |
 | Tahap 5 | Model PLTS atap — Pers. (3.16) – (3.18) |
