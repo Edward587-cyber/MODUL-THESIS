@@ -6,9 +6,11 @@ Jaringan Distribusi 20 kV terhadap Penetrasi Simultan EV Charging dan PLTS Atap*
 Edward Paulus Saputra Panjaitan — Program Magister Teknik Elektro,
 Institut Teknologi Sepuluh Nopember.
 
-> **Versi anonim.** Nama gardu diganti kode G01–G13 dan penyulangnya disebut
-> "Penyulang A", mengikuti versi makalah. Repositori ini tidak memuat nama
-> gardu, nama gardu induk, maupun nama unit pelaksana yang sebenarnya.
+> **Isi terenkripsi.** Modul ini memuat nama gardu, nama penyulang, dan angka
+> hasil yang sebenarnya. Seluruhnya berada di dalam sandi-teks AES-256-GCM,
+> sehingga `index.html` yang terbaca publik di GitHub tidak memuat satu pun
+> nama tersebut dalam bentuk terbaca. Tanpa frasa sandi, berkas ini hanya
+> deretan karakter acak.
 
 ## Isi
 
@@ -29,6 +31,9 @@ panel isi di kanan. Tab pertama adalah bagan alir metodologi.
 | Tahap 7 | Partial smart charging — Pers. (3.20) – (3.23) |
 | Tahap 8 | Realokasi adopsi per gardu — Pers. (3.26) – (3.29) |
 | Hasil | Angka akhir dan urutan efektivitas strategi |
+| Kamus persamaan | Seluruh 61 persamaan naskah — Pers. (2.1) – (2.31), (3.1) – (3.29), (4.1) — dengan fungsi, arti notasi, dan sumber |
+| Modul Python · DIgSILENT | `cereme_hc.py` dibedah delapan lapis: konfigurasi, data, jembatan API, mesin run, penilai, sapuan, 24 fase, pengaman |
+| OpenDSS | Sembilan berkas masukan `.dss` baris demi baris, dan `studi_CEREME.py` dengan delapan fasenya |
 | Hitung tangan | Penetapan hosting capacity dengan kalkulator, tiga iterasi |
 | Latihan soal | Soal acak sepuluh persamaan; angkanya berganti setiap jawaban benar |
 
@@ -42,7 +47,9 @@ yang ada hanya sandi-teks AES-256-GCM, dengan kunci diturunkan memakai PBKDF2
 SHA-256 310.000 putaran. Tanpa frasa sandi yang benar, `index.html` hanya
 berisi deretan karakter acak.
 
-Frasa sandinya tidak ditulis di repositori ini.
+Frasa sandinya tidak ditulis di repositori ini. Karena isinya memuat nama dan
+angka yang sebenarnya, kekuatan frasa sandi itulah satu-satunya yang melindungi
+— bukan sifat repositori yang publik atau privat.
 
 Setelah terbuka, panel tetap terbuka selama tab peramban belum ditutup.
 Tombol **Keluar dari panel** di kaki bilah menu menghapus sesi itu dan
