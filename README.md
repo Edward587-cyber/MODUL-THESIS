@@ -30,7 +30,7 @@ panel isi di kanan. Tab pertama adalah bagan alir metodologi.
 | Tahap 6 | Penetapan hosting capacity — Pers. (2.28) – (2.30), (3.19) |
 | Tahap 7 | Partial smart charging — Pers. (3.20) – (3.23) |
 | Tahap 8 | Realokasi adopsi per gardu — Pers. (3.26) – (3.29) |
-| Hasil | Angka akhir dan urutan efektivitas strategi |
+| Hasil | **Angka akhir lengkap**: 9 uji, 18 tabel, 8 grafik, penanda poin penting, dan penelusuran tiap angka ke lembar Excel serta berkas CSV sumbernya |
 | Kamus persamaan | Seluruh 61 persamaan naskah — Pers. (2.1) – (2.31), (3.1) – (3.29), (4.1) — dengan fungsi, arti notasi, dan sumber |
 | Modul Python · DIgSILENT | `cereme_hc.py` dibedah delapan lapis: konfigurasi, data, jembatan API, mesin run, penilai, sapuan, 24 fase, pengaman |
 | OpenDSS | Sembilan berkas masukan `.dss` baris demi baris, dan `studi_CEREME.py` dengan delapan fasenya |
@@ -66,6 +66,10 @@ Atau unduh `index.html` dan buka dengan peramban mana pun — tidak perlu server
 
 - Naskah tesis Bab 1 – 4, untuk hasil DIgSILENT PowerFactory.
 - Penjalanan skrip sapuan OpenDSS pada 13 November 2026, untuk hasil pembanding.
+- Tab **Hasil** mengambil angkanya langsung dari berkas keluaran simulasi
+  (`hasil_*.csv`, `validasi_*.csv`) dan dari 17 tabel olahan `buat_grafik.py`.
+  Grafiknya digambar ulang sebagai SVG dari berkas yang sama, bukan disalin
+  sebagai gambar, sehingga tetap tajam pada ukuran berapa pun.
 
 Model OpenDSS dan berkas keluarannya tidak disertakan di repositori ini.
 
